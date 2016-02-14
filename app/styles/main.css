@@ -19,6 +19,10 @@ Author: Basil Vetas
   /*color: #BADA55;*/
 }
 
+.font {
+  font-family: Calibri, Trebuchet, Arial, sans-serif;
+}
+
 
 /*----------------------------------------------------------------------------- 
 03=NAV
@@ -35,7 +39,7 @@ Author: Basil Vetas
 }
 
 .navbar-toggle {
-  margin: 20px 30px;
+  margin: 25px 30px;
 }
 
 .navbar-brand {
