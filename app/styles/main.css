@@ -26,7 +26,7 @@ body {
 02=THEMES  
 -----------------------------------------------------------------------------*/
 
-h1 {
+h2 {
   color: #FFFFFF;
 }
 
@@ -129,7 +129,6 @@ footer .navbar .nav li a:hover {
 header {
   height: 700px;
   width: 100%;
-  /*background: #404040;*/
   text-align: center;
   color: #FFFFFF;  
 }
