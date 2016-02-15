@@ -1,36 +1,30 @@
 /******** Templates ********/
 
-app.controller('MainCtrl', ['$scope', function ($scope) {
+app.controller('HomeCtrl', ['$scope', function ($scope) {
 
 }]);
 
 app.controller('AboutCtrl', ['$scope', function ($scope) {
 
-	$scope.about = "about";
+}]);
+
+app.controller('PortfolioCtrl', ['$scope', function ($scope) {
+	
 
 }]);
 
-app.controller('DonateCtrl', ['$scope', function ($scope) {
+app.controller('BlogCtrl', ['$scope', function ($scope) {
 
-	$scope.donate = "donate";
-
-}]);
-
-app.controller('StudentsCtrl', ['$scope', function ($scope) {
-
-	$scope.students = "students";
 
 }]);
 
-app.controller('StaffCtrl', ['$scope', function ($scope) {
+app.controller('MediaCtrl', ['$scope', function ($scope) {
 
-	$scope.staff = "staff";
 
 }]);
 
 app.controller('ContactCtrl', ['$scope', function ($scope) {
-
-	$scope.contact = "contact";
+	
 
 }]);
 
@@ -40,10 +34,11 @@ app.controller('ContactCtrl', ['$scope', function ($scope) {
 app.controller('NavCtrl', ['$scope', function ($scope) {
 
 	$scope.menu = [
+		{ title: "Home", link: "#/" },
 		{ title: "About", link: "#/about" },
-		{ title: "Donate", link: "#/donate"},
-		{ title: "Students", link: "#/students"},
-		{ title: "Staff", link: "#/staff"},
+		{ title: "Portfolio", link: "#/portfolio"},
+		{ title: "Blog", link: "#/blog"},
+		{ title: "Media", link: "#/media"},
 		{ title: "Contact", link: "#/contact"}
 	];
     
@@ -55,10 +50,13 @@ app.controller('FooterCtrl', ['$scope', function ($scope) {
     
 }]);
 
+app.controller('HeaderCtrl', ['$scope', function ($scope) {
+
+	$scope.banner = 'imgs/nyc.jpg'
+    
+}]);
+
 app.controller('CarouselCtrl', ['$scope', function ($scope) {
-
-
-
 
 	$scope.interval = 3000;
   $scope.slides = [

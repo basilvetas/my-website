@@ -3,24 +3,24 @@ app = angular.module('app', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: '/templates/main.html',
-      controller: 'MainCtrl'
+      templateUrl: '/templates/home.html',
+      controller: 'HomeCtrl'
     })
     .when('/about', {
       templateUrl: '/templates/about.html',
       controller: 'AboutCtrl'
     })
-    .when('/donate', {
-      templateUrl: '/templates/donate.html',
-      controller: 'DonateCtrl'
+    .when('/portfolio', {
+      templateUrl: '/templates/portfolio.html',
+      controller: 'PortfolioCtrl'
     })
-    .when('/students', {
-      templateUrl: '/templates/students.html',
-      controller: 'StudentsCtrl'
+    .when('/blog', {
+      templateUrl: '/templates/blog.html',
+      controller: 'BlogCtrl'
     })
-    .when('/staff', {
-      templateUrl: '/templates/staff.html',
-      controller: 'StaffCtrl'
+    .when('/media', {
+      templateUrl: '/templates/media.html',
+      controller: 'MediaCtrl'
     })
     .when('/contact', {
       templateUrl: '/templates/contact.html',
