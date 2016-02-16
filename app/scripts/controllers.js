@@ -65,3 +65,24 @@ app.controller('CarouselCtrl', ['$scope', function ($scope) {
   ];
     
 }]);
+
+app.controller('SocialCtrl', ['$scope', function ($scope) {
+
+	$scope.social = [
+		{ name: "github", link: "https://github.com/basilvetas" },
+		{ name: "facebook", link: "https://www.facebook.com/basilvetas" },
+		{ name: "twitter", link: "https://twitter.com/basilvetas" },
+		{ name: "linkedin", link: "https://www.linkedin.com/in/basilvetas/" },
+		{ name: "instagram", link: "https://www.instagram.com/basilvetas/" },
+		{ name: "google", link: "https://plus.google.com/+BasilVetas" }
+	];
+		
+	$scope.color = function(i) {	
+		$('#' + i).addClass("btn-" + i)		    
+  };
+
+  $scope.default = function(i) {		
+		$('#' + i).removeClass("btn-" + i)		    
+  };
+    
+}]);

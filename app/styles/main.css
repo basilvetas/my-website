@@ -39,6 +39,17 @@ h2 {
   font-family: Calibri, Trebuchet, Arial, sans-serif;
 }
 
+.ellipsis {
+  text-align: center;
+}
+
+.spaced-caps {
+  font: 100% Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 20px; 
+}
+
 
 /*----------------------------------------------------------------------------- 
 03=NAV
@@ -57,8 +68,16 @@ h2 {
   border: none;
 }
 
+.navbar-default .navbar-nav li a:visited {
+  color: #FFFFFF;
+}
+
 .navbar-default .navbar-nav li a:hover {
   color: #359D71;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: #FFFFFF;
 }
 
 .navbar-toggle {
@@ -138,6 +157,12 @@ header .glyphicon {
   top: 600px;
 }
 
+/*----------------------------------------------------------------------------- 
+06=SOCIAL
+-----------------------------------------------------------------------------*/
 
-
+.social {
+  padding: 20px;
+  text-align: center;
+}
 
