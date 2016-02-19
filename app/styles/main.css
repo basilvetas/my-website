@@ -156,10 +156,15 @@ header {
   color: #FFFFFF;  
 }
 
-header .glyphicon {
+/*header .glyphicon {
   position: absolute;
   top: 600px;
 }
+
+header .hire-btn {
+  position: absolute;
+  top: 300px; 
+}*/
 
 /*----------------------------------------------------------------------------- 
 06=SOCIAL
