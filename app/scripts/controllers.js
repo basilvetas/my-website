@@ -52,7 +52,7 @@ app.controller('FooterCtrl', ['$scope', function ($scope) {
 
 app.controller('HeaderCtrl', ['$scope', function ($scope) {
 
-	$scope.banner = 'imgs/nyc.jpg'
+	$scope.banner = 'imgs/nyc.jpg';
     
 }]);
 
@@ -86,3 +86,19 @@ app.controller('SocialCtrl', ['$scope', function ($scope) {
   };
     
 }]);
+
+
+app.controller('HireBtnCtrl', ['$scope', function ($scope) {
+
+	$scope.link = "#/contact";	
+
+}]);
+
+
+
+
+
+
+
+
+

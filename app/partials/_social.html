@@ -1,12 +1,15 @@
 <!-- should be used inside of a .container element-->
-<div class="social" ng-controller="SocialCtrl">
-  <div class="row">   
-    <!-- <div class="col-md-4"></div> -->
-    <div class="col-md-3 .col-md-offset-3 spaced-caps">Socialize</div>
-  </div>
-  <div class="row">  
-    <div ng-repeat="i in social">
-      <a id="{{i.name}}" ng-mouseover="color(i.name)" ng-mouseleave="default(i.name)" class="btn btn-lg btn-block btn-social-icon btn-default" ng-href="{{i.link}}" target="_blank"><span class="fa fa-{{i.name}}"></span></a>
-    </div>
+<div class="social" ng-controller="SocialCtrl">  
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h3 class="spaced-caps">Socialize</h3>
+      <ul>
+        <li ng-repeat="i in social">        
+          <a id="{{i.name}}" ng-mouseover="color(i.name)" ng-mouseleave="default(i.name)" class="btn btn-lg btn-social-icon btn-default" ng-href="{{i.link}}" target="_blank"><span class="fa fa-{{i.name}}"></span></a>
+        </li>
+      </ul>
+    </div>   
+    <div class="col-md-4"></div>
   </div>   
 </div>

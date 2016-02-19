@@ -19,7 +19,7 @@ body {
 /* For sticky footer */
 
 .container-fluid {
-  padding: 30px;  
+  padding: 50px;  
 }
 
 /*----------------------------------------------------------------------------- 
@@ -36,7 +36,8 @@ h2 {
 }
 
 .font {
-  font-family: Calibri, Trebuchet, Arial, sans-serif;
+font-family: Lato, Trebuchet, Arial, sans-serif;
+  /*font-family: Calibri, Trebuchet, Arial, sans-serif;*/
 }
 
 .ellipsis {
@@ -44,12 +45,21 @@ h2 {
 }
 
 .spaced-caps {
-  font: 100% Arial, Helvetica, sans-serif;
+  font: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 20px; 
+  letter-spacing: 2px;  
+  font-weight: normal;
 }
 
+.dark {
+  background: #404040;
+  color: #FFFFFF;  
+  border-bottom: 1px solid #359D71;  
+}
+
+.no-margin {
+  margin: 0;
+}
 
 /*----------------------------------------------------------------------------- 
 03=NAV
@@ -114,12 +124,6 @@ footer {
   color: #FFFFFF;
 }
 
-.dark {
-  background: #404040;
-  color: #FFFFFF;  
-  border-bottom: 1px solid #359D71;  
-}
-
 footer .navbar {
   border: none;
   margin: 0;
@@ -164,5 +168,35 @@ header .glyphicon {
 .social {
   padding: 20px;
   text-align: center;
+}
+
+.social .btn {
+  margin: 30px;
+}
+
+.social ul { 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social li {
+  display: inline;
+  width: 60px;
+}
+
+/*----------------------------------------------------------------------------- 
+07=HIRE_BUTTON
+-----------------------------------------------------------------------------*/
+
+.hire-btn {
+  background: none;
+  color: rgba(255,255,255,.8);
+}
+
+@media (max-width: 767px) {
+  .hire-btn {
+    margin: 30px;
+  }
 }
 
