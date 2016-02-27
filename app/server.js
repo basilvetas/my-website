@@ -49,9 +49,7 @@ app.post('/contact-form', function(req, res) {
 			  to: req.body.name + " <" + req.body.email + ">",
 			  subject: "Thanks for message", 
 			  text: "Hi " + req.body.name + ", \n\nThanks for your message, I will get back to you as soon as I can.\n\nBest,\nBasil"
-			};
-
-			console.log(mailToThemOptions);
+			};			
 
 			transporter.sendMail(mailToThemOptions, function(err, resp){	  	  
 			  if(err) {	  	
