@@ -1,0 +1,27 @@
+<div>
+
+	<form name="contactForm" ng-submit="sendMail()">
+		<fieldset class="form-group">
+			<label for="firstName" class="form-control-label">First Name</label>
+			<input type="text" class="form-control" id="firstName" ng-model="firstName">		    
+			<label for="lastName" class="form-control-label">Last Name</label>			
+		  <input type="text" class="form-control" id="lastName" ng-model="lastName">
+		</fieldset>
+	  </fieldset>
+	  <fieldset class="form-group">
+	    <label for="emailAddress">Email Address</label>
+	    <input type="email" class="form-control" id="emailAddress" ng-model="email">	  
+	  </fieldset>
+	  <fieldset class="form-group">
+	    <label for="subject">Subject</label>
+	    <input type="text" class="form-control" id="subject" ng-model="subject">	    
+	  </fieldset>
+	  <fieldset class="form-group">
+	    <label for="message">Message</label>
+	    <textarea class="form-control" id="message" rows="5" ng-model="message"></textarea>
+	  </fieldset>
+	  <button type="submit" class="btn btn-default">Send</button>
+	</form>
+
+
+</div>

@@ -1,7 +1,21 @@
 {
-  "name" : "ServeStaticContent",
-  "version" : "0.0.1",
+  "name" : "basilvetas",
+  "version" : "1.0.0",
+  "description" : "Personal Website Application",
+  "main" : "app/server.js",
+  "author": {
+    "name": "Basil Vetas"
+  },
+  "license" : "MIT", 
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/basilvetas/my-website"
+  },
   "dependencies" : {
-    "express" : "3.x"
+    "body-parser" : "1.x",
+    "express" : "3.x",
+    "lodash" : "4.x",
+    "nodemailer" : "2.x",
+    "nodemailer-smtp-transport" : "2.x"
   }
 }

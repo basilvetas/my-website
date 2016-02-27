@@ -78,25 +78,40 @@ app.controller('SocialCtrl', ['$scope', function ($scope) {
 	];
 		
 	$scope.color = function(i) {	
-		$('#' + i).addClass("btn-" + i)		    
+		$('#' + i).addClass("btn-" + i);		    
   };
 
   $scope.default = function(i) {		
-		$('#' + i).removeClass("btn-" + i)		    
+		$('#' + i).removeClass("btn-" + i);		    
   };
     
 }]);
 
+app.controller('ContactFormCtrl', ['$scope', '$http', '$animate', function ($scope, $http, $animate) {
 
-app.controller('HireBtnCtrl', ['$scope', function ($scope) {
+	$scope.firstName = "";
+	$scope.lastName = "";
+	$scope.email = "";
+	$scope.subject = "";
+	$scope.message = "";
 
-	$scope.link = "#/contact";	
+	$scope.sendMail = function()
+	{	
+		var msg = ({
+			name : $scope.firstName  + " " + $scope.lastName,
+			email : $scope.email,
+			subject : $scope.subject,
+			text : $scope.message
+		});
+
+		console.log(msg);	
+
+		$http.post("/contact-form", msg).then(function(data){			
+			console.log(data);
+		});
+	};
 
 }]);
-
-
-
-
 
 
 
