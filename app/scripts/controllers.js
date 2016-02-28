@@ -25,6 +25,7 @@ app.controller('MediaCtrl', ['$scope', function ($scope) {
 
 app.controller('ContactCtrl', ['$scope', function ($scope) {
 	
+	$scope.portrait = "imgs/basil-cropped.jpg";
 
 }]);
 

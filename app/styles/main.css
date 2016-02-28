@@ -221,3 +221,22 @@ header .hire-btn {
 #contact h3 {
   margin-bottom: 30px;
 }
+
+#contact img {
+  max-width: 50%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  #contact img {
+    max-width: 25%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact img {
+    max-width: 50%;
+    height: auto;
+  }
+}
