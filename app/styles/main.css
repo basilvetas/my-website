@@ -227,6 +227,10 @@ header .hire-btn {
   height: auto;
 }
 
+textarea {
+  resize: none;
+}
+
 @media (max-width: 767px) {
   #contact img {
     max-width: 25%;

@@ -103,10 +103,9 @@ app.controller('ContactFormCtrl', ['$scope', '$http', '$animate', function ($sco
 			email : $scope.email,
 			subject : $scope.subject,
 			text : $scope.message
-		});
+		});		
 
-		console.log(msg);	
-
+		// need to do stuff with callback
 		$http.post("/contact-form", msg).then(function(data){			
 			console.log(data);
 		});
