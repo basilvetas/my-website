@@ -1,6 +1,6 @@
  <!-- add this attribute back to first div if using ng-include rather than directive -->
  <!-- ng-controller="CarouselCtrl" -->
-<div>
+<div ng-controller="CarouselCtrl">
   <div uib-carousel interval="interval" no-wrap="noWrapSlides">
     <div uib-slide ng-repeat="slide in slides" active="slide.active">
       <img ng-src="{{slide.image}}">

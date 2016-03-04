@@ -34,6 +34,16 @@ app.controller('ContactCtrl', ['$scope', function ($scope) {
 
 app.controller('NavCtrl', ['$scope', function ($scope) {
 
+	$(window).scroll(function() {   
+		console.log($(window).scrollTop()); 
+	  if($(window).scrollTop() >= 550)
+	    $(".navbar-fixed-top").css("background", "rgba(40, 40, 40, .7)");
+
+	  if($(window).scrollTop() < 550)
+			$(".navbar-fixed-top").css("background", "none");
+	});
+
+
 	$scope.menu = [
 		{ title: "Home", link: "#/" },
 		{ title: "About", link: "#/about" },
@@ -53,7 +63,7 @@ app.controller('FooterCtrl', ['$scope', function ($scope) {
 
 app.controller('HeaderCtrl', ['$scope', function ($scope) {
 
-	$scope.banner = 'imgs/nyc.jpg';
+	// $scope.banner = 'imgs/nyc.jpg';
     
 }]);
 

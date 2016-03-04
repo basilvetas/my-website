@@ -67,7 +67,7 @@ font-family: Lato, Trebuchet, Arial, sans-serif;
 
 .navbar-fixed-top {
   min-height: 80px;
-  background: rgba(40, 40, 40, .7); /* #F1F0ED; */  
+  background: none;
   border: none;  
 }
 
@@ -150,10 +150,11 @@ footer .navbar .nav li a:hover {
 05=HEADER
 -----------------------------------------------------------------------------*/
 header {
-  height: 700px;
-  width: 100%;
-  text-align: center;
-  color: #FFFFFF;  
+  background-image: url(/imgs/nyc.jpg);
+  background-size: cover;  
+  background-position: center;
+  background-repeat: no-repeat;  
+  height: 600px;  
 }
 
 /*header .glyphicon {
