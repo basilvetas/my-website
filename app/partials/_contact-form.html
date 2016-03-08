@@ -23,5 +23,6 @@
 	  <button type="submit" class="btn btn-default">Send</button>
 	</form>
 
+	<div uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</div>
 
 </div>

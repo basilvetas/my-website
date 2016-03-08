@@ -35,14 +35,12 @@ app.controller('ContactCtrl', ['$scope', function ($scope) {
 app.controller('NavCtrl', ['$scope', function ($scope) {
 
 	$(window).scroll(function() {   
-		console.log($(window).scrollTop()); 
 	  if($(window).scrollTop() >= 550)
 	    $(".navbar-fixed-top").css("background", "rgba(40, 40, 40, .7)");
 
 	  if($(window).scrollTop() < 550)
 			$(".navbar-fixed-top").css("background", "none");
-	});
-
+	});	
 
 	$scope.menu = [
 		{ title: "Home", link: "#/" },
@@ -106,6 +104,8 @@ app.controller('ContactFormCtrl', ['$scope', '$http', '$animate', function ($sco
 	$scope.subject = "";
 	$scope.message = "";
 
+	$scope.alerts = [];
+
 	$scope.sendMail = function()
 	{	
 		var msg = ({
@@ -116,10 +116,29 @@ app.controller('ContactFormCtrl', ['$scope', '$http', '$animate', function ($sco
 		});		
 
 		// need to do stuff with callback
-		$http.post("/contact-form", msg).then(function(data){			
-			console.log(data);
+		$http.post("/contact-form", msg).then(function(response){			
+			console.log(response);
+			console.log(response.data.result);
+			if(response.data.result == "Success")
+				$scope.addSuccessAlert("Message Sent Successfully!")
+			else if(response.data.result == "Failure 1")
+				$scope.addDangerAlert("Message failed to send. Please try again.")
+			else
+				$scope.addDangerAlert("Message failed to send. Please enter a valid email address and try again.")			
 		});
 	};
+
+	$scope.addSuccessAlert = function(message) {
+    $scope.alerts.push({ type: 'success', msg: message});
+  };
+
+  $scope.addDangerAlert = function(message) {
+    $scope.alerts.push({ type: 'danger', msg: message});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 
 }]);
 

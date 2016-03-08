@@ -40,7 +40,7 @@ app.post('/contact-form', function(req, res) {
 	transporter.sendMail(mailToMeOptions, function(error, response){
 		
 	  if(error){	  	
-	    return res.send("Message failed to send to me: " + error.Message);
+	    return res.send({result: "Failure 1", msg: err.Message});
 	  }
 	  else {
 
@@ -53,10 +53,10 @@ app.post('/contact-form', function(req, res) {
 
 			transporter.sendMail(mailToThemOptions, function(err, resp){	  	  
 			  if(err) {	  	
-			    return res.send("Message failed to send to user: " + err.Message);
+			    return res.send({result: "Failure 2", msg: err.Message});
 			  }
 			  else {
-			  	return res.send("Messages sent successfully");	   	   
+			  	return res.send({result: "Success", msg: "success"});	   	   
 			  }	  
 			});	
 	  } 
