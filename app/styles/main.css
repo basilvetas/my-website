@@ -44,6 +44,10 @@ font-family: Lato, Trebuchet, Arial, sans-serif;
   text-align: center;
 }
 
+.center {
+ text-align: center; 
+}
+
 .spaced-caps {
   font: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
@@ -232,6 +236,7 @@ textarea {
   resize: none;
 }
 
+/* tablet */
 @media (max-width: 767px) {
   #contact img {
     max-width: 25%;
@@ -239,9 +244,59 @@ textarea {
   }
 }
 
+/* mobile */
 @media (max-width: 480px) {
   #contact img {
     max-width: 50%;
     height: auto;
+  }
+}
+
+/*----------------------------------------------------------------------------- 
+08=PROJECT
+-----------------------------------------------------------------------------*/
+
+.project img.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+ .project img.gray { 
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.project ul { 
+  list-style-type: none;  
+  margin: 0;
+  padding: 0;
+}
+
+.project li {
+  display: inline;  
+}
+
+.project img {  
+  margin: 20px;
+}
+
+.project .name {  
+  display: inline;   
+}
+
+/* tablet */
+@media (max-width: 767px) {
+  .project img.circle {
+    width: 175px;
+    height: 175px;
+  }
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  .project img.circle {
+    width: 100px;
+    height: 100px;
   }
 }

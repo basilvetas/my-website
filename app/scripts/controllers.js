@@ -83,6 +83,9 @@ app.controller('CarouselCtrl', ['$scope', function ($scope) {
 
 app.controller('SocialCtrl', ['$scope', function ($scope) {
 
+	// NOTE: minor bug - can't have more than one instance of social.html
+	// on a page or the color changes don't work (because of id's)
+
 	$scope.social = [
 		{ name: "github", link: "https://github.com/basilvetas" },
 		{ name: "facebook", link: "https://www.facebook.com/basilvetas" },
@@ -136,21 +139,42 @@ app.controller('ContactFormCtrl', ['$scope', '$http', '$animate', function ($sco
 		});
 	};
 
+	// add success alert
 	$scope.addSuccessAlert = function(message) {
     $scope.alerts.push({ type: 'success', msg: message});
   };
 
+  // add danger alert
   $scope.addDangerAlert = function(message) {
     $scope.alerts.push({ type: 'danger', msg: message});
   };
 
+  // remove alert when X clicked
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
   };
 
 }]);
 
+app.controller('ProjectCtrl', ['$scope', function ($scope) {
 
+	$scope.projects = [
+		{ name: "Surf Into Yoga", id: "surf-into-yoga" , image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
+		{ name: "Surf Into Yoga", id: "a1", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
+		{ name: "Surf Into Yoga", id: "b2", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
+		{ name: "Surf Into Yoga", id: "c3", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
+		{ name: "Surf Into Yoga", id: "d4", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' }
+	];
 
+	$scope.noGray = function(proj) {
+		console.log("got in")	
+		$("#" + proj).removeClass("gray");		    
+  };
 
+  $scope.gray = function(proj) {	
+  	console.log("got out")	
+		$("#" + proj).addClass("gray");		    
+  };
+    
+}]);
 

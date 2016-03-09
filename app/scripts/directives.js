@@ -59,3 +59,12 @@ app.directive('contactForm', [function () {
     controller: 'ContactFormCtrl'
   }
 }]);
+
+app.directive('project', [function () {
+  return {
+    restrict: 'A', // C: class, E: element, M: comments, A: attributes
+    replace: false, // replaces original content with template
+    templateUrl: 'partials/_project.html',
+    controller: 'ProjectCtrl'
+  }
+}]);

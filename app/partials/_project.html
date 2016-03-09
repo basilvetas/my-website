@@ -1,0 +1,11 @@
+<div class="project">
+	<div class="row">		
+			<ul class="center">				
+        <li ng-repeat="project in projects">
+        	<!-- <div class="name spaced-caps">{{project.name}}</div> -->
+        	<a ng-mouseover="noGray(project.id)" ng-mouseleave="gray(project.id)" ng-href="{{project.link}}" target="_blank"><img id="{{project.id}}" class="circle gray" ng-src="{{project.image}}" /></a>
+        </li>
+      </ul>
+	</div>
+</div>
+
