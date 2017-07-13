@@ -2,14 +2,18 @@
 
 app.controller('HomeCtrl', ['$scope', function ($scope) {
 
+	var $el = $('#my-infinite-container');
+	var listView = new infinity.ListView($el);
+	console.log("listView");
+	console.log(listView);
+
+}]);
+
+app.controller('ArchiveCtrl', ['$scope', function ($scope) {
+
 }]);
 
 app.controller('AboutCtrl', ['$scope', function ($scope) {
-
-}]);
-
-app.controller('PortfolioCtrl', ['$scope', function ($scope) {
-	
 
 }]);
 
@@ -18,43 +22,24 @@ app.controller('BlogCtrl', ['$scope', function ($scope) {
 
 }]);
 
-app.controller('MediaCtrl', ['$scope', function ($scope) {
-
-
-}]);
-
 app.controller('ContactCtrl', ['$scope', function ($scope) {
 	
-	$scope.portrait = "imgs/basil-cropped.jpg";
 
 }]);
-
 
 /******** Partials ********/
 
 app.controller('NavCtrl', ['$scope', function ($scope) {
-
-	// adds background to nav bar on scroll
-	$(window).scroll(function() {   
-	  if($(window).scrollTop() >= 550)
-	    $(".navbar-fixed-top").css("background", "rgba(40, 40, 40, .7)");
-
-	  if($(window).scrollTop() < 550)
-			$(".navbar-fixed-top").css("background", "none");
-	});	
 
 	// make mobile/tablet navbar close on click
 	$('.nav a').click(function(){
     $('#collapse-1').collapse('hide');
 	});
 
-	$scope.menu = [
-		{ title: "Home", link: "#/" },
-		{ title: "About", link: "#/about" },
-		{ title: "Portfolio", link: "#/portfolio"},
-		{ title: "Blog", link: "#/blog"},
-		{ title: "Media", link: "#/media"},
-		{ title: "Contact", link: "#/contact"}
+	$scope.menu = [		
+		{ title: "Home", link: "#/" },		
+		{ title: "Archive", link: "#/archive" },		
+		{ title: "About", link: "#/about" }		
 	];
     
 }]);
@@ -68,16 +53,6 @@ app.controller('FooterCtrl', ['$scope', function ($scope) {
 app.controller('HeaderCtrl', ['$scope', function ($scope) {
 
 	// $scope.banner = 'imgs/nyc.jpg';
-    
-}]);
-
-app.controller('CarouselCtrl', ['$scope', function ($scope) {
-
-	$scope.interval = 3000;
-  $scope.slides = [
-    { image: 'imgs/slc-day.jpg', text: "first" },
-    { image: 'imgs/slc-night.jpg', text: "second" },    
-  ];
     
 }]);
 
@@ -103,7 +78,7 @@ app.controller('SocialCtrl', ['$scope', function ($scope) {
   // removes background color from social buttons
   $scope.default = function(i) {		
 		$('#' + i).removeClass("btn-" + i);		    
-  };
+  };	
     
 }]);
 
@@ -154,27 +129,5 @@ app.controller('ContactFormCtrl', ['$scope', '$http', '$animate', function ($sco
     $scope.alerts.splice(index, 1);
   };
 
-}]);
-
-app.controller('ProjectCtrl', ['$scope', function ($scope) {
-
-	$scope.projects = [
-		{ name: "Surf Into Yoga", id: "surf-into-yoga" , image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
-		{ name: "Surf Into Yoga", id: "a1", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
-		{ name: "Surf Into Yoga", id: "b2", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
-		{ name: "Surf Into Yoga", id: "c3", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' },
-		{ name: "Surf Into Yoga", id: "d4", image: 'imgs/surf-into-yoga.jpg', link: 'http://surfintoyoga.com/' }
-	];
-
-	$scope.noGray = function(proj) {
-		console.log("got in")	
-		$("#" + proj).removeClass("gray");		    
-  };
-
-  $scope.gray = function(proj) {	
-  	console.log("got out")	
-		$("#" + proj).addClass("gray");		    
-  };
-    
 }]);
 

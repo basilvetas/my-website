@@ -36,8 +36,7 @@ h2 {
 }
 
 .font {
-font-family: Lato, Trebuchet, Arial, sans-serif;
-  /*font-family: Calibri, Trebuchet, Arial, sans-serif;*/
+  font-family: 'Special Elite', cursive, sans-serif;
 }
 
 .ellipsis {
@@ -65,20 +64,24 @@ font-family: Lato, Trebuchet, Arial, sans-serif;
   margin: 0;
 }
 
+a:focus, a:hover {
+  text-decoration: none;
+}
+
 /*----------------------------------------------------------------------------- 
 03=NAV
 -----------------------------------------------------------------------------*/
 
 .navbar-fixed-top {
-  min-height: 80px;
-  background: none;
+  background: #000;
+  min-height: 60px;
   border: none;  
 }
 
 .navbar-right li a {
   padding-top: 0px;
   padding-bottom: 0px;
-  line-height: 80px;  
+  line-height: 60px;  
   border: none;
 }
 
@@ -95,7 +98,7 @@ font-family: Lato, Trebuchet, Arial, sans-serif;
 }
 
 .navbar-toggle {
-  margin: 25px 30px;  
+  margin: 15px 30px;  
 }
 
 .navbar-brand {
@@ -154,22 +157,12 @@ footer .navbar .nav li a:hover {
 05=HEADER
 -----------------------------------------------------------------------------*/
 header {
-  background-image: url(/imgs/nyc.jpg);
+  /*background-image: url();*/
   background-size: cover;  
   background-position: center;
   background-repeat: no-repeat;  
-  height: 600px;  
+  height: 100px;  
 }
-
-/*header .glyphicon {
-  position: absolute;
-  top: 600px;
-}
-
-header .hire-btn {
-  position: absolute;
-  top: 300px; 
-}*/
 
 /*----------------------------------------------------------------------------- 
 06=SOCIAL
@@ -219,10 +212,6 @@ header .hire-btn {
   margin: 20px;
 }
 
-.contact-info {
-  margin: 20px;
-}
-
 #contact h3 {
   margin-bottom: 30px;
 }
@@ -249,54 +238,5 @@ textarea {
   #contact img {
     max-width: 50%;
     height: auto;
-  }
-}
-
-/*----------------------------------------------------------------------------- 
-08=PROJECT
------------------------------------------------------------------------------*/
-
-.project img.circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-}
-
- .project img.gray { 
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-}
-
-.project ul { 
-  list-style-type: none;  
-  margin: 0;
-  padding: 0;
-}
-
-.project li {
-  display: inline;  
-}
-
-.project img {  
-  margin: 20px;
-}
-
-.project .name {  
-  display: inline;   
-}
-
-/* tablet */
-@media (max-width: 767px) {
-  .project img.circle {
-    width: 175px;
-    height: 175px;
-  }
-}
-
-/* mobile */
-@media (max-width: 480px) {
-  .project img.circle {
-    width: 100px;
-    height: 100px;
   }
 }
