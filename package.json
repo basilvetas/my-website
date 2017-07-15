@@ -1,21 +1,24 @@
 {
-  "name" : "basilvetas",
-  "version" : "1.0.0",
-  "description" : "Personal Website Application",
-  "main" : "app/server.js",
+  "name": "basilvetas",
+  "version": "1.0.0",
+  "description": "Personal Website Application",
+  "main": "app/server.js",
   "author": {
     "name": "Basil Vetas"
   },
-  "license" : "MIT", 
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/basilvetas/my-website"
   },
-  "dependencies" : {
-    "body-parser" : "1.x",
-    "express" : "3.x",
-    "lodash" : "4.x",
-    "nodemailer" : "2.x",
-    "nodemailer-smtp-transport" : "2.x"
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-route": "^1.6.5",
+    "angular-ui-bootstrap": "^2.5.0",
+    "body-parser": "1.x",
+    "bootstrap": "^3.3.7",
+    "express": "3.x",
+    "lodash": "4.x"
   }
 }

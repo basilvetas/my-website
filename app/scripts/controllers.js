@@ -1,11 +1,21 @@
 /******** Templates ********/
-
 app.controller('HomeCtrl', ['$scope', function ($scope) {
 
 	var $el = $('#my-infinite-container');
 	var listView = new infinity.ListView($el);
 	console.log("listView");
 	console.log(listView);
+	
+	console.log(_.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 }));	
+
+	// for (var i = Things.length - 1; i >= 0; i--) {
+	// 	Things[i]
+	// }
+
+	// var mainInfo = null;
+	// $http.get('content.json').success(function(data) {
+	//     mainInfo = data;
+	// });
 
 }]);
 
@@ -14,16 +24,6 @@ app.controller('ArchiveCtrl', ['$scope', function ($scope) {
 }]);
 
 app.controller('AboutCtrl', ['$scope', function ($scope) {
-
-}]);
-
-app.controller('BlogCtrl', ['$scope', function ($scope) {
-
-
-}]);
-
-app.controller('ContactCtrl', ['$scope', function ($scope) {
-	
 
 }]);
 
@@ -82,52 +82,4 @@ app.controller('SocialCtrl', ['$scope', function ($scope) {
     
 }]);
 
-app.controller('ContactFormCtrl', ['$scope', '$http', '$animate', function ($scope, $http, $animate) {
-
-	$scope.firstName = "";
-	$scope.lastName = "";
-	$scope.email = "";
-	$scope.subject = "";
-	$scope.message = "";
-
-	$scope.alerts = [];
-
-	$scope.sendMail = function()
-	{	
-		var msg = ({
-			name : $scope.firstName  + " " + $scope.lastName,
-			email : $scope.email,
-			subject : $scope.subject,
-			text : $scope.message
-		});		
-
-		// need to do stuff with callback
-		$http.post("/contact-form", msg).then(function(response){			
-			console.log(response);
-			console.log(response.data.result);
-			if(response.data.result == "Success")
-				$scope.addSuccessAlert("Message sent successfully!")
-			else if(response.data.result == "Failure 1")
-				$scope.addDangerAlert("Oops. Something may be wrong. Please try again later.")
-			else
-				$scope.addDangerAlert("Message failed to send. Please enter a valid email address and try again.")			
-		});
-	};
-
-	// add success alert
-	$scope.addSuccessAlert = function(message) {
-    $scope.alerts.push({ type: 'success', msg: message});
-  };
-
-  // add danger alert
-  $scope.addDangerAlert = function(message) {
-    $scope.alerts.push({ type: 'danger', msg: message});
-  };
-
-  // remove alert when X clicked
-  $scope.closeAlert = function(index) {
-    $scope.alerts.splice(index, 1);
-  };
-
-}]);
 

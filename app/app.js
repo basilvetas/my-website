@@ -2,6 +2,10 @@
 
 var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
+app.config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}]);
+
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     .when('/', {
@@ -21,11 +25,6 @@ app.config(['$routeProvider', function ($routeProvider) {
       controller: 'BlogCtrl'
     })        
 }]);
-
-
-
-
-
 
 
 

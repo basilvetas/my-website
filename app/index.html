@@ -31,21 +31,6 @@
 	</head>
 	<body>
 
-<!-- 		<div class="row">		
-		  
-		  <div class="span8" style="background: blue;">
-		  	<div ng-include="'partials/_left-col.html'"></div>   
-		  </div>
-		  <div class="span4" style="background: red;">
-				<div ng-include="'partials/_right-col.html'"></div>   
-			</div>
-		</div>	 -->
-
-	<!-- the commented out notation is what I want to do but its giving me problems -->
-	<!-- <div carousel></div>     -->
-	<!-- <div ng-include="'partials/_carousel.html'"></div>    -->
-	
-
 		<!-- <div ng-include="'partials/_nav.html'"></div> -->
 		<div nav></div>
 		<div header></div> 
@@ -53,34 +38,21 @@
 		<div footer></div>
 		<!-- <div ng-include="'partials/_footer.html'"></div>   -->
 
-
-
-
-
-
 		<!-- Load JavaScript -->
 
 		<!-- jQuery -->
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> 
-		
-		<!-- Boostrap JS -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> 		
 
-		<!-- Angular JS -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-animate.min.js"></script> 		
-		
-		<!-- Angular UI Bootstrap -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>		
+		<!-- Browserify -->
+		<script src="bundle.js"></script>
+
+		<!-- Infinity.js -->
+		<script src="scripts/infinity.js"></script>	
 
 		<!-- My JavaScript -->
 		<script src="app.js"></script>
-		<script src="scripts/infinity.js"></script>		
 		<script src="scripts/controllers.js"></script>
-		<script src="scripts/directives.js"></script>
-		<script src="scripts/services.js"></script>
-		<script src="scripts/filters.js"></script>				
+		<script src="scripts/directives.js"></script>		
 
 	</body>
 </html>
