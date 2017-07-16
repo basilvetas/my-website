@@ -91,7 +91,8 @@ a:focus, a:hover {
 }
 
 .navbar-default .navbar-nav li a:hover {
-  color: #359D71;
+  background-color: #eee;
+  color: #000;
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {

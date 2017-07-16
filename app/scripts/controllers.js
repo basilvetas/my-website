@@ -1,5 +1,5 @@
 /******** Templates ********/
-app.controller('HomeCtrl', ['$scope', function ($scope) {
+app.controller('HomeCtrl', ['$scope', '$location', function ($scope, $location) {
 
 	var $el = $('#my-infinite-container');
 	var listView = new infinity.ListView($el);
@@ -17,14 +17,26 @@ app.controller('HomeCtrl', ['$scope', function ($scope) {
 	//     mainInfo = data;
 	// });
 
+	$scope.goToPost = function (postname) {           
+      $location.path('/post/' + postname)
+  };
+
 }]);
 
-app.controller('ArchiveCtrl', ['$scope', function ($scope) {
+// app.controller('ArchiveCtrl', ['$scope', function ($scope) {
 
-}]);
+// }]);
 
 app.controller('AboutCtrl', ['$scope', function ($scope) {
 
+}]);
+
+app.controller('PostCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+		
+		$scope.postname = $routeParams.postname;
+
+		// var unique = (new Date()).getTime();
+  //   $scope.templateUrl = '/api/pages/' + $routeParams.page + '?unique=' + unique;
 }]);
 
 /******** Partials ********/
@@ -38,7 +50,7 @@ app.controller('NavCtrl', ['$scope', function ($scope) {
 
 	$scope.menu = [		
 		{ title: "Home", link: "#/" },		
-		{ title: "Archive", link: "#/archive" },		
+		// { title: "Archive", link: "#/archive" },		
 		{ title: "About", link: "#/about" }		
 	];
     
