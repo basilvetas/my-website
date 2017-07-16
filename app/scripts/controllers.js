@@ -1,24 +1,56 @@
+'use strict';
+
 /******** Templates ********/
-app.controller('HomeCtrl', ['$scope', '$location', function ($scope, $location) {
+app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", function ($scope, $location, $http, $sce) {		
 
-	var $el = $('#my-infinite-container');
-	var listView = new infinity.ListView($el);
-	console.log("listView");
-	console.log(listView);
-	
-	console.log(_.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 }));	
+	$scope.postList = [];
 
-	// for (var i = Things.length - 1; i >= 0; i--) {
-	// 	Things[i]
-	// }
+	// load posts from txt files
+	$http.get('posts.json').then(function (success){
 
-	// var mainInfo = null;
-	// $http.get('content.json').success(function(data) {
-	//     mainInfo = data;
-	// });
+		var posts = success.data.posts; 		
 
-	$scope.goToPost = function (postname) {           
-      $location.path('/post/' + postname)
+ 		_.each(posts, function(post) {
+
+ 			$http.get('posts/' + post.title + '.txt').then(function (success){
+ 				var content = success.data
+
+ 				// format as html				
+				var title = '';
+				var date = post.date;
+				var tag = post.title
+				var htmlContent = '';	
+
+        _.each(content.split("\n\n"), function(key, num) {        		
+
+        		if(num == 0) {
+        			title = key.trim();
+        		}
+        		else {
+        			htmlContent += '<p>' + key + '</p>';	
+        		}
+            
+        });
+
+        htmlContent = $sce.trustAsHtml(htmlContent)
+        
+				$scope.postList.push({title : title, date: date, content: htmlContent, tag: tag});				
+
+		  },function (error){
+
+		  });
+		  
+		});
+		
+  },function (error){
+
+  });	
+
+  console.log($scope.postList);
+
+	$scope.goToPost = function (postname) {  
+		console.log("here " + postname);         
+    $location.path('/post/' + postname);
   };
 
 }]);
