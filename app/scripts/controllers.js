@@ -22,18 +22,16 @@ app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", function ($s
 				var htmlContent = '';	
 
         _.each(content.split("\n\n"), function(key, num) {        		
-
         		if(num == 0) {
         			title = key.trim();
         		}
         		else {
         			htmlContent += '<p>' + key + '</p>';	
-        		}
-            
+        		}            
         });
 
-        htmlContent = $sce.trustAsHtml(htmlContent)
-        
+        htmlContent = $sce.trustAsHtml(htmlContent);
+
 				$scope.postList.push({title : title, date: date, content: htmlContent, tag: tag});				
 
 		  },function (error){
@@ -48,8 +46,7 @@ app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", function ($s
 
   console.log($scope.postList);
 
-	$scope.goToPost = function (postname) {  
-		console.log("here " + postname);         
+	$scope.goToPost = function (postname) {  		         
     $location.path('/post/' + postname);
   };
 
@@ -63,12 +60,40 @@ app.controller('AboutCtrl', ['$scope', function ($scope) {
 
 }]);
 
-app.controller('PostCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+app.controller('PostCtrl', ['$scope', '$routeParams', '$http', '$sce', function ($scope, $routeParams, $http, $sce) {
 		
-		$scope.postname = $routeParams.postname;
+		var postname = $routeParams.postname;	
 
-		// var unique = (new Date()).getTime();
-  //   $scope.templateUrl = '/api/pages/' + $routeParams.page + '?unique=' + unique;
+		$http.get('posts/' + postname + '.txt').then(function (success){
+			var content = success.data
+
+			// format as html				
+			var title = '';
+			var date = post.date;
+			var tag = post.title
+			var htmlContent = '';	
+
+      _.each(content.split("\n\n"), function(key, num) {        		
+      		if(num == 0) {
+      			title = key.trim();
+      		}
+      		else {
+      			htmlContent += '<p>' + key + '</p>';	
+      		}          
+      });
+
+      htmlContent = $sce.trustAsHtml(htmlContent);
+
+			$scope.post = {
+				title : title, 				
+				content: htmlContent, 
+				tag: tag
+			};				
+
+	  },function (error){
+
+	  });
+		
 }]);
 
 /******** Partials ********/

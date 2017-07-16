@@ -1,8 +1,11 @@
 <div id="post">
 	<div class="container">
 
-	<h1>Post</h1>	
-	<p>{{postname}}</p>
+		<div class="font">
+			<h3>{{post.title}}</h3>			
+			<div ng-bind-html=post.content></div>
 			
+		</div>
+
 	</div>
 </div>
