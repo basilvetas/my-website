@@ -1,11 +1,13 @@
 <div id="post">
 	<div class="container">
-
-		<div class="font">
-			<h3>{{post.title}}</h3>			
-			<div ng-bind-html=post.content></div>
-			
-		</div>
-
+		<div class="col-xs-2"></div>			
+			<div class="col-xs-8">
+				<div class="font">
+					<a href ng-click="goToPost(post.tag)"><h3>{{post.title}}</h3></a>
+					<div ng-bind-html=post.html></div>					
+					<p>{{post.date}}</p>			
+				</div>
+			</div>
+		<div class="col-xs-2"></div>							
 	</div>
 </div>

@@ -1,7 +1,7 @@
 'use strict';
 
 /******** Templates ********/
-app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", function ($scope, $location, $http, $sce) {		
+app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", 'postService', function ($scope, $location, $http, $sce, postService) {		
 
 	$scope.postList = [];
 
@@ -13,26 +13,32 @@ app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", function ($s
  		_.each(posts, function(post) {
 
  			$http.get('posts/' + post.title + '.txt').then(function (success){
- 				var content = success.data
+ 				var data = success.data
 
  				// format as html				
 				var title = '';
 				var date = post.date;
 				var tag = post.title
-				var htmlContent = '';	
+				var body = '';	
 
-        _.each(content.split("\n\n"), function(key, num) {        		
+        _.each(data.split("\n\n"), function(key, num) {        		
         		if(num == 0) {
         			title = key.trim();
         		}
         		else {
-        			htmlContent += '<p>' + key + '</p>';	
+        			body += '<p>' + key + '</p>';	
         		}            
         });
 
-        htmlContent = $sce.trustAsHtml(htmlContent);
+        var html = $sce.trustAsHtml(body);
 
-				$scope.postList.push({title : title, date: date, content: htmlContent, tag: tag});				
+				$scope.postList.push({
+					title: title, 
+					date: date, 					
+					body: body,
+					tag: tag,
+					html: html
+				});				
 
 		  },function (error){
 
@@ -44,12 +50,26 @@ app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", function ($s
 
   });	
 
-  console.log($scope.postList);
-
-	$scope.goToPost = function (postname) {  		         
-    $location.path('/post/' + postname);
+	$scope.goToPost = function (tag, date, title, body) {  		         
+    $location.path('/post/' + tag);    
+    postService.setPostContent({title: title, date: date, body: body, tag: tag});
   };
 
+}]);
+
+app.controller('PostCtrl', ['$scope', '$routeParams', '$http', '$sce', 'postService', function ($scope, $routeParams, $http, $sce, postService) {
+		
+		var content = postService.getPostContent();
+		var html = $sce.trustAsHtml(content.body);
+
+		$scope.post = {
+				title: content.title, 				
+				date: content.date,
+				body: content.body, 
+				tag: content.tag,
+				html: html
+			};		
+		
 }]);
 
 // app.controller('ArchiveCtrl', ['$scope', function ($scope) {
@@ -58,42 +78,6 @@ app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", function ($s
 
 app.controller('AboutCtrl', ['$scope', function ($scope) {
 
-}]);
-
-app.controller('PostCtrl', ['$scope', '$routeParams', '$http', '$sce', function ($scope, $routeParams, $http, $sce) {
-		
-		var postname = $routeParams.postname;	
-
-		$http.get('posts/' + postname + '.txt').then(function (success){
-			var content = success.data
-
-			// format as html				
-			var title = '';
-			var date = post.date;
-			var tag = post.title
-			var htmlContent = '';	
-
-      _.each(content.split("\n\n"), function(key, num) {        		
-      		if(num == 0) {
-      			title = key.trim();
-      		}
-      		else {
-      			htmlContent += '<p>' + key + '</p>';	
-      		}          
-      });
-
-      htmlContent = $sce.trustAsHtml(htmlContent);
-
-			$scope.post = {
-				title : title, 				
-				content: htmlContent, 
-				tag: tag
-			};				
-
-	  },function (error){
-
-	  });
-		
 }]);
 
 /******** Partials ********/
