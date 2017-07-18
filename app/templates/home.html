@@ -5,7 +5,7 @@
 				<div class="font" ng-repeat="post in postList">
 					<a href ng-click="goToPost(post.tag, post.date, post.title, post.body)"><h3>{{post.title}}</h3></a>								
 					<div ng-bind-html="post.html"></div>					
-					<p>{{post.date}}</p>			
+					<a href ng-click="goToPost(post.tag, post.date, post.title, post.body)"><p class="date">{{post.date | date:'longDate'}}</p></a>
 					<br />
 				</div>
 			</div>
