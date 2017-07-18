@@ -57,18 +57,26 @@ app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", 'postService
 
 }]);
 
-app.controller('PostCtrl', ['$scope', '$routeParams', '$http', '$sce', 'postService', function ($scope, $routeParams, $http, $sce, postService) {
-		
-		var content = postService.getPostContent();
+app.controller('PostCtrl', ['$scope', '$routeParams', '$http', '$sce', 'postService', function ($scope, $routeParams, $http, $sce, postService) {		
+	
+	function loadPost() {
+    var content = postService.getPostContent();
+    console.log("LOAD");
+    console.log(content.title);
 		var html = $sce.trustAsHtml(content.body);
 
 		$scope.post = {
-				title: content.title, 				
-				date: content.date,
-				body: content.body, 
-				tag: content.tag,
-				html: html
-			};		
+			title: content.title, 				
+			date: content.date,
+			body: content.body, 
+			tag: content.tag,
+			html: html
+		};
+  }
+
+  loadPost()
+
+	$scope.$on('$routeChangeUpdate', loadPost);
 		
 }]);
 

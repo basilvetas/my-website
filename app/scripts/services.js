@@ -1,12 +1,11 @@
 app.service('postService', function () {
-  var post = {};
 
   return {
-      getPostContent: function () {
-          return post;
+      getPostContent: function () {        		
+          return JSON.parse(localStorage.getItem('currentPost'));
       },
-      setPostContent: function(content) {
-          post = content;
+      setPostContent: function(content) {      		
+      		localStorage.setItem('currentPost', JSON.stringify(content));      		          
       }
   };
 });
