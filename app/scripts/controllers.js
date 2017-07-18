@@ -90,9 +90,9 @@ app.controller('NavCtrl', ['$scope', function ($scope) {
 	});
 
 	$scope.menu = [		
-		{ title: "Home", link: "#/" },		
+		{ title: "Home", link: "/" },		
 		// { title: "Archive", link: "#/archive" },		
-		{ title: "About", link: "#/about" }		
+		{ title: "About", link: "/about" }		
 	];
     
 }]);

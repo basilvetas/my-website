@@ -2,8 +2,8 @@
 
 var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
-app.config(['$locationProvider', function($locationProvider) {
-  $locationProvider.hashPrefix('');
+app.config(['$locationProvider', function($locationProvider) {  
+  $locationProvider.html5Mode(true).hashPrefix('');
 }]);
 
 app.config(['$routeProvider', function ($routeProvider) {
