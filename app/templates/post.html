@@ -3,10 +3,10 @@
 		<div class="col-md-2"></div>			
 			<div class="col-md-8">
 				<div class="font">
-					<a href ng-click="goToPost(post.tag)"><h1>{{post.title}}</h1></a>
-					<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.tag"/>
+					<a href ng-click="goToPost(post.path)"><h1>{{post.title}}</h1></a>
+					<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.path"/>
 					<div class="content" ng-bind-html=post.body></div>					
-					<a href ng-click="goToPost(post.tag)"><p class="date">{{post.date | date:'longDate'}}</p></a>
+					<a href ng-click="goToPost(post.path)"><p class="date">{{post.date | date:'longDate'}}</p></a>
 				</div>
 
 

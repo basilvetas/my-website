@@ -218,3 +218,20 @@ header {
   display: inline;
   width: 60px;
 }
+
+/*----------------------------------------------------------------------------- 
+06=RESOURCES
+-----------------------------------------------------------------------------*/
+
+#resources a {
+  font-size: 12px;
+}
+
+#resources ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+#resources li {
+  list-style: none;
+}

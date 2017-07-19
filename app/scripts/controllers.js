@@ -13,8 +13,8 @@ app.controller('HomeCtrl', ['$scope', '$location', 'postService', function ($sco
     });		
 	});
 
-	$scope.goToPost = function (tag) {  		         
-    $location.path('/post/' + tag);        
+	$scope.goToPost = function (path) {  		         
+    $location.path('/post/' + path);        
   };
 
 }]);
@@ -26,18 +26,16 @@ app.controller('PostCtrl', ['$scope', '$routeParams', '$location', 'postService'
 		$scope.post = {};
 		
 		postService.reqPostList().then(function (data){		
-	 		postService.getPostContent(_.find(data, {'tag': post})).then(function (data){	    			    
+	 		postService.getPostContent(_.find(data, {'path': post})).then(function (data){	    			    
 		 		$scope.post = data;		 		
 			});
 		});
   }
 
-  // loadPost($routeParams.postname);
-
 	$scope.$on('$routeChangeUpdate', loadPost($routeParams.postname));
 
-	$scope.goToPost = function (tag) {  		         
-    $location.path('/post/' + tag);        
+	$scope.goToPost = function (path) {  		         
+    $location.path('/post/' + path);        
   };
 		
 }]);
@@ -45,6 +43,22 @@ app.controller('PostCtrl', ['$scope', '$routeParams', '$location', 'postService'
 app.controller('AboutCtrl', ['$scope', function ($scope) {
 
 }]);
+
+app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, resourceService) {
+
+	$scope.categories = [
+		"Blockchain",
+		"Health",
+		"Other"
+	]
+
+	$scope.resources = [];
+	resourceService.reqResources().then(function(data) {		
+		$scope.resources = data;		
+	}); 
+
+}]);
+
 
 /******** Partials ********/
 
@@ -56,9 +70,9 @@ app.controller('NavCtrl', ['$scope', function ($scope) {
 	});
 
 	$scope.menu = [		
-		{ title: "Home", link: "/" },		
-		// { title: "Archive", link: "#/archive" },		
-		{ title: "About", link: "/about" }		
+		{ title: "Home", link: "/" },				
+		{ title: "About", link: "/about" },
+		{ title: "Resources", link: "/resources"}
 	];
     
 }]);
