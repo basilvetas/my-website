@@ -66,24 +66,25 @@ app.service('resourceService', ['$http', function ($http) {
 
 }]);
 
-app.filter('catFilter', function() {
+app.filter('catFilter', ['$filter', function($filter) {
   
   return function(resources, category) {
 
   	var output = [];
 
-  	_.each(resources, function(res) {
+  	_.each(resources, function(res) {  		
 
-  		if(_.includes(res.categories, category)) {  			
+  		if(_.includes(res.categories, category)) {  	
+
   			output.push(res);
   		}
     	
-    });
+    });    
 
     return output;
   }
 
-});
+}]);
 
 
 

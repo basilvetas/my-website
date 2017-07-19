@@ -2,13 +2,13 @@
 	<div class="container">
 		<div class="col-xs-2"></div>			
 			<div class="col-md-8 font">
-				<h1>Recommended</h1>	
+				<h1>Resources</h1>	
 
 				<div ng-repeat="cat in categories">		
 					<div class="row">
 						<div class="col-md-12">
 							<h3>{{cat}}</h3>
-							<ul ng-repeat="res in resources | catFilter:cat ">								
+							<ul ng-repeat="res in resources | catFilter:cat ">									
 								<li><a ng-href="{{res.link}}" target="_blank">{{res.article}}</a></li>
 							</ul>
 						</div>
