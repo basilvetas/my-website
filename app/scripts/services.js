@@ -3,20 +3,13 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
   return {
 		reqPostList: function() {
 
-			return $http.get('posts.json').then(function (success){
-
-				// localStorage.setItem('postList', JSON.stringify(success.data.posts));
-
+			return $http.get('posts.json').then(function (success){			
 				return success.data.posts;
-
 		  },function (error){
 
 		  });	  
 		  
-		},
-    // getPostList: function () {     	
-    //   return JSON.parse(localStorage.getItem('postList'));
-    // },
+		},    
     getPostContent: function (post) {
     		
       	return $http.get('posts/' + post.tag + '.txt').then(function (success){
@@ -39,7 +32,8 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
 
 					var currentPost = {
 						title: title, 						
-						date: date, 					
+						date: date, 		
+						image: image,			
 						body: $sce.trustAsHtml(body),
 						tag: tag,						
 					};

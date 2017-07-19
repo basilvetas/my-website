@@ -3,7 +3,8 @@
 			<div class="col-xs-2"></div>			
 			<div class="col-xs-8">
 				<div class="font" ng-repeat="post in postContents">					
-					<a href ng-click="goToPost(post.tag)"><h1>{{post.title}}</h1></a>								
+					<a href ng-click="goToPost(post.tag)"><h1>{{post.title}}</h1></a>	
+					<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.tag"/>							
 					<div class="content" ng-bind-html="post.body"></div>					
 					<a href ng-click="goToPost(post.tag)"><p class="date">{{post.date | date:'longDate'}}</p></a>
 					<br />
