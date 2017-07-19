@@ -49,6 +49,7 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, 
 	$scope.categories = [
 		"Blockchain",
 		"Investing",
+		"Technology",
 		"Health",
 		"Other"
 	]
