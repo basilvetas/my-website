@@ -1,88 +1,46 @@
 'use strict';
 
 /******** Templates ********/
-app.controller('HomeCtrl', ['$scope', '$location', '$http', "$sce", 'postService', function ($scope, $location, $http, $sce, postService) {		
-
-	$scope.postList = [];
-
-	// load posts from txt files
-	$http.get('posts.json').then(function (success){
-
-		var posts = success.data.posts; 		
-
- 		_.each(posts, function(post) {
-
- 			$http.get('posts/' + post.title + '.txt').then(function (success){
- 				var data = success.data
-
- 				// format as html				
-				var title = '';
-				var date = post.date;
-				var tag = post.title
-				var body = '';	
-
-        _.each(data.split("\n\n"), function(key, num) {        		
-        		if(num == 0) {
-        			title = key.trim();
-        		}
-        		else {
-        			body += '<p>' + key + '</p>';	
-        		}            
-        });
-
-        var html = $sce.trustAsHtml(body);
-
-				$scope.postList.push({
-					title: title, 
-					date: date, 					
-					body: body,
-					tag: tag,
-					html: html
-				});				
-
-		  },function (error){
-
-		  });
-		  
-		});
+app.controller('HomeCtrl', ['$scope', '$location', 'postService', function ($scope, $location, postService) {		
 		
-  },function (error){
+	$scope.postContents = [];
+	
+	postService.reqPostList().then(function (data){		
+		_.each(data, function(post) {
+    	postService.getPostContent(post).then(function (data){    
+    		$scope.postContents.push(data);
+    	});
+    });		
+	});
 
-  });	
-
-	$scope.goToPost = function (tag, date, title, body) {  		         
-    $location.path('/post/' + tag);    
-    postService.setPostContent({title: title, date: date, body: body, tag: tag});
+	$scope.goToPost = function (tag) {  		         
+    $location.path('/post/' + tag);        
   };
 
 }]);
 
-app.controller('PostCtrl', ['$scope', '$routeParams', '$http', '$sce', 'postService', function ($scope, $routeParams, $http, $sce, postService) {		
+app.controller('PostCtrl', ['$scope', '$routeParams', '$location', 'postService', function ($scope, $routeParams, $location, postService) {		
 	
-	function loadPost() {
-    var content = postService.getPostContent();
-    console.log("LOAD");
-    console.log(content.title);
-		var html = $sce.trustAsHtml(content.body);
-
-		$scope.post = {
-			title: content.title, 				
-			date: content.date,
-			body: content.body, 
-			tag: content.tag,
-			html: html
-		};
+	function loadPost(post) {
+		
+		$scope.post = {};
+		
+		postService.reqPostList().then(function (data){		
+	 		postService.getPostContent(_.find(data, {'tag': post})).then(function (data){	    			    
+		 		$scope.post = data;		 		
+			});
+		});
   }
 
-  loadPost()
+  // loadPost($routeParams.postname);
 
-	$scope.$on('$routeChangeUpdate', loadPost);
+	$scope.$on('$routeChangeUpdate', loadPost($routeParams.postname));
+
+	$scope.goToPost = function (tag) {  		         
+    $location.path('/post/' + tag);        
+  };
 		
 }]);
-
-// app.controller('ArchiveCtrl', ['$scope', function ($scope) {
-
-// }]);
 
 app.controller('AboutCtrl', ['$scope', function ($scope) {
 

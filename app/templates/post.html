@@ -3,9 +3,9 @@
 		<div class="col-xs-2"></div>			
 			<div class="col-xs-8">
 				<div class="font">
-					<a href ng-click="goToPost(post.tag, post.date, post.title, post.body)"><h1>{{post.title}}</h1></a>
-					<div class="content" ng-bind-html=post.html></div>					
-					<a href ng-click="goToPost(post.tag, post.date, post.title, post.body)"><p class="date">{{post.date | date:'longDate'}}</p></a>
+					<a href ng-click="goToPost(post.tag)"><h1>{{post.title}}</h1></a>
+					<div class="content" ng-bind-html=post.body></div>					
+					<a href ng-click="goToPost(post.tag)"><p class="date">{{post.date | date:'longDate'}}</p></a>
 				</div>
 
 
