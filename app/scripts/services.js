@@ -21,9 +21,12 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
 				var title = '';									
 				var body = '';
 
-        _.each(success.data.split("\n\n"), function(key, num) {        		
+        _.each(success.data.split("\n\n"), function(key, num) { 
+
+        	key = key.trim();
+
       		if(num == 0) {
-      			title = key.trim();
+      			title = key;
       		}
       		else if(key[0] ===  "\"" && key[key.length-1] ===  "\"") {
       			body += '<blockquote>' + key + '</blockquote>';	
