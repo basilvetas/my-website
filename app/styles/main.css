@@ -71,7 +71,7 @@ h2 {
 }
 
 a {
-  color: #000;
+  color: #000;  
 }
 
 a:focus, a:hover {
@@ -86,6 +86,10 @@ a:focus, a:hover {
 
 .content {
   margin: 30px 0;
+}
+
+.content a, .content a:focus, .content a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 767px) {
