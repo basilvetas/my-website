@@ -51,6 +51,7 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, 
 		"Investing",
 		"Technology",
 		"Startups",
+		"Environment",
 		"Philosophy",
 		"Health",
 		"Other"
