@@ -9,7 +9,7 @@
 						<div class="col-md-12">
 							<h3>{{cat}}</h3>
 							<ul ng-repeat="res in resources | catFilter:cat ">									
-								<li><a ng-href="{{res.link}}" target="_blank">{{res.article}}</a></li>
+								<li><a ng-href="{{res.link}}" target="_blank">{{res.date | date:'MMM \'\'yy'}} - {{res.article}}</a></li>
 							</ul>
 						</div>
 					</div>				
