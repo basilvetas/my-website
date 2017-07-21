@@ -12,12 +12,9 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
 		},    
     getPostContent: function (post) {
     		
-    	return $http.get('posts/' + post.path + '.txt').then(function (success){
+    	return $http.get('posts/' + post.path + '.txt').then(function (success){    		
 
-    		// extract post contents
-				var date = post.date;
-				var path = post.path;
-				var image = post.image || null;
+    		// format post contents								
 				var title = '';									
 				var body = '';
 
@@ -32,17 +29,20 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
       			body += '<blockquote>' + key + '</blockquote>';	
       		}
       		else {      		
-      			body += '<p>' + key + '</p>';	
+      			body += '<p>' + key + '</p><br />';	
       		}            
         });
 
 				var currentPost = {
 					title: title, 						
-					date: date, 		
-					image: image,			
+					date: post.date || null, 							
 					body: $sce.trustAsHtml(body),
-					path: path,						
+					path: post.path,
+					image: post.image || null,			
+					sources: post.sources || null						
 				};
+
+				console.log(currentPost);
 
 				return currentPost;
 

@@ -1,15 +1,23 @@
 <div id="home">
 	<div class="container">		
-			<div class="col-md-2"></div>			
-			<div class="col-md-8 font">
-				<div ng-repeat="post in postContents">					
-					<a href ng-click="goToPost(post.path)"><h1>{{post.title}}</h1></a>	
-					<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.path"/>							
-					<div class="content" ng-bind-html="post.body"></div>					
-					<a href ng-click="goToPost(post.path)"><p class="date">{{post.date | date:'longDate'}}</p></a>
-					<br />
-				</div>
+		<div class="col-md-2"></div>			
+		<div class="col-md-8 font">
+
+			<div ng-repeat="post in postContents">					
+				<a href ng-click="goToPost(post.path)"><h1>{{post.title}}</h1></a>	
+				<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.path"/>							
+				<div class="content" ng-bind-html="post.body"></div>					
+
+				<div class="subtext">
+					<div>Posted: <a href ng-click="goToPost(post.path)">{{post.date | date:'longDate'}}</a></div>
+					<span ng-if="post.sources">Sources: </span>
+					<span ng-repeat="source in post.sources">
+						<a ng-href="source.link" target="_blank">{{source.author}}</a><span ng-if="!$last">, </span>
+					</span>												
+				</div>							
 			</div>
-			<div class="col-md-2"></div>
+
+		</div>
+		<div class="col-md-2"></div>
 	</div>
 </div

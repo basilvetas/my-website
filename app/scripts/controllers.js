@@ -40,7 +40,13 @@ app.controller('PostCtrl', ['$scope', '$routeParams', '$location', 'postService'
 		
 }]);
 
-app.controller('AboutCtrl', ['$scope', function ($scope) {
+app.controller('AboutCtrl', ['$scope', 'postService', function ($scope, postService) {
+
+	$scope.about = {};
+				
+	postService.getPostContent({"path": "about-me"}).then(function (data){	    			    
+ 		$scope.about = data; 		
+	});
 
 }]);
 

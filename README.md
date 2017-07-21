@@ -8,6 +8,6 @@ npm install
 BUNDLE CLIENT-SIDE MODULES:
 browserify main.js -o bundle.js
 
-START SERVER: 
+START LOCAL SERVER: 
 node server
 
