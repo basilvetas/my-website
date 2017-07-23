@@ -1,7 +1,7 @@
 'use strict';
 
 /******** Templates ********/
-app.controller('HomeCtrl', ['$scope', '$location', 'postService', function ($scope, $location, postService) {		
+app.controller('HomeCtrl', ['$scope', 'postService', function ($scope, postService) {		
 		
 	$scope.postContents = [];
 	
@@ -13,13 +13,9 @@ app.controller('HomeCtrl', ['$scope', '$location', 'postService', function ($sco
     });		
 	});
 
-	$scope.goToPost = function (path) {  		         
-    $location.path('/post/' + path);        
-  };
-
 }]);
 
-app.controller('PostCtrl', ['$scope', '$routeParams', '$location', 'postService', function ($scope, $routeParams, $location, postService) {		
+app.controller('PostCtrl', ['$scope', '$routeParams', 'postService', function ($scope, $routeParams, postService) {		
 	
 	function loadPost(post) {
 		
@@ -33,10 +29,6 @@ app.controller('PostCtrl', ['$scope', '$routeParams', '$location', 'postService'
   }
 
 	$scope.$on('$routeChangeUpdate', loadPost($routeParams.postname));
-
-	$scope.goToPost = function (path) {  		         
-    $location.path('/post/' + path);        
-  };
 		
 }]);
 

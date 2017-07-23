@@ -38,6 +38,7 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
 					date: post.date || null, 							
 					body: $sce.trustAsHtml(body),
 					path: post.path,
+					tags: post.tags,
 					image: post.image || null,			
 					sources: post.sources || null						
 				};

@@ -3,16 +3,26 @@
 		<div class="col-md-2"></div>			
 		<div class="col-md-8 font">
 
-			<a href ng-click="goToPost(post.path)"><h1>{{post.title}}</h1></a>
+			<a ng-href="{{'/post/' + post.path}}"><h1>{{post.title}}</h1></a>
 			<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.path"/>
 			<div class="content" ng-bind-html="post.body"></div>					
 
+			<!--  ng-click="goToPost(post.path)" -->
 			<div class="subtext">
-				<div>Posted: <a href ng-click="goToPost(post.path)">{{post.date | date:'longDate'}}</a></div>
-				<span ng-if="post.sources">Sources: </span>
-				<span ng-repeat="source in post.sources">
-					<a ng-href="source.link" target="_blank">{{source.author}}</a><span ng-if="!$last">, </span>
-				</span>												
+				<span>Posted: <a ng-href="{{'/post/' + post.path}}">{{post.date | date:'longDate'}}</a></span>
+
+				<span ng-if="post.tags">&nbsp;&mdash;&nbsp;</span>
+				<span ng-repeat="tag in post.tags">
+					<a href>{{tag}}</a><span ng-if="!$last">, </span>
+				</span>			
+
+				<div ng-if="post.sources">
+					Sources:
+					<span ng-repeat="source in post.sources">
+						<a ng-href="{{source.link}}" target="_blank">{{source.author}}</a><span ng-if="!$last">, </span>
+					</span>	
+				</div>											
+
 			</div>							
 
 			<div id="disqus_thread"></div>			
