@@ -75,17 +75,25 @@ app.service('resourceService', ['$http', function ($http) {
 
 app.filter('catFilter', ['$filter', function($filter) {
   
-  return function(resources, category) {
+  return function(resources, tags) {
 
   	var output = [];
 
-  	_.each(resources, function(res) {  		
+  	_.each(resources, function(res) {  		  		
+  		// filter the resources by their category tags
+  		_.each(tags, function(tag) {
 
-  		if(_.includes(res.categories, category)) {  	
+  			if(_.includes(res.categories, tag)) {  	
 
-  			output.push(res);
-  		}
-    	
+	  			// make sure values are unique
+	  			if(!_.includes(output, res)) {  
+	  				output.push(res);
+	  			}
+
+	  		}
+
+  		});
+  		    
     });    
 
     return output;

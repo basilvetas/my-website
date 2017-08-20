@@ -44,15 +44,17 @@ app.controller('AboutCtrl', ['$scope', 'postService', function ($scope, postServ
 
 app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, resourceService) {
 
+	
+		
+
 	$scope.categories = [
-		"Blockchain",
-		"Investing",
-		"Technology",
-		"Startups",
-		"Environment",
-		"Philosophy",
-		"Health",
-		"Other"
+		{tags: ["blockchain"], title: "Blockchain"},
+		{tags: ["investing", "startups"], title: "Startups & Investing"},
+		{tags: ["technology"], title: "Technology"},		
+		{tags: ["environment"], title: "Environment"},
+		{tags: ["politics", "philosophy", "economics"], title: "Philosophy, Politics & Economics"},
+		{tags: ["health", "nutrition"], title: "Health & Nutrition"},
+		{tags: ["other"], title: "Other"}
 	]
 
 	$scope.resources = [];
