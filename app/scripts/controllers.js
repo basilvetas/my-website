@@ -43,10 +43,7 @@ app.controller('AboutCtrl', ['$scope', 'postService', function ($scope, postServ
 }]);
 
 app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, resourceService) {
-
 	
-		
-
 	$scope.categories = [
 		{tags: ["blockchain"], title: "Blockchain"},
 		{tags: ["investing", "startups"], title: "Startups & Investing"},
@@ -59,19 +56,7 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, 
 
 	$scope.resources = [];
 
-	resourceService.reqResources().then(function(data) {		
-
-		_.each(data, function(item) {
-			if(item.date) {
-				item.date = new Date(item.date);
-			}		
-			else {
-				item.date = new Date();
-			}
-		});
-
-		data = _.orderBy(data, 'date', 'desc');    		
-
+	resourceService.reqResources().then(function(data) {		 		
 		$scope.resources = data;		
 	}); 
 

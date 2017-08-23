@@ -3,8 +3,12 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
   return {
 		reqPostList: function() {
 
-			return $http.get('posts.json').then(function (success){			
-				return success.data.posts;
+			return $http.get('posts.json').then(function (success){				
+	
+				// order by date				
+				posts = _.orderBy(success.data.posts, 'date', 'desc');				 				
+
+				return posts;
 		  },function (error){
 
 		  });	  
@@ -43,8 +47,6 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
 					sources: post.sources || null						
 				};
 
-				console.log(currentPost);
-
 				return currentPost;
 
 		  },function (error){
@@ -61,8 +63,24 @@ app.service('resourceService', ['$http', function ($http) {
 
 		reqResources: function() {
 
-			return $http.get('resources.json').then(function (success){			
-				return success.data.resources;
+			return $http.get('resources.json').then(function (success){	
+				
+				resources = success.data.resources;
+
+				// wrap dates as objects
+				_.each(resources, function(res) {
+					if(res.date) {
+						res.date = new Date(res.date);
+					}		
+					else {
+						res.date = new Date();
+					}
+				});
+
+				// order resources by date
+				resources = _.orderBy(resources, 'date', 'desc');
+
+				return resources;
 		  },function (error){
 
 		  });	  
