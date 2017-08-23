@@ -3,3 +3,4 @@ app/posts/
 app/posts.json
 app/resources.json
 app/bundle.js
+app/feed.xml

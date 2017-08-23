@@ -15,7 +15,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when('/about', {
       templateUrl: '/templates/about.html',
       controller: 'AboutCtrl'
-    })    
+    })       
     .when('/resources', {
       templateUrl: '/templates/resources.html',
       controller: 'ResourcesCtrl'
@@ -23,14 +23,9 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when('/post/:postname', {
       templateUrl: '/templates/post.html', 
       controller: 'PostCtrl'
-    })
+    })    
     .otherwise({
       redirectTo: "/"
     });
 }]);
-
-
-
-
-
 

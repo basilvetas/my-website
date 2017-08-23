@@ -73,8 +73,8 @@ app.controller('NavCtrl', ['$scope', function ($scope) {
 
 	$scope.menu = [		
 		{ title: "Home", link: "/" },				
-		{ title: "About", link: "/about" },
-		{ title: "Resources", link: "/resources"}
+		{ title: "About", link: "/about" },	
+		{ title: "Resources", link: "/resources"}		
 	];
     
 }]);
@@ -85,35 +85,7 @@ app.controller('FooterCtrl', ['$scope', function ($scope) {
     
 }]);
 
-app.controller('HeaderCtrl', ['$scope', function ($scope) {
-
-	// $scope.banner = 'imgs/nyc.jpg';
-    
-}]);
-
-app.controller('SocialCtrl', ['$scope', function ($scope) {
-
-	// NOTE: minor bug - can't have more than one instance of social.html
-	// on a page or the color changes don't work (because of id's)
-
-	$scope.social = [
-		{ name: "github", link: "https://github.com/basilvetas" },
-		{ name: "facebook", link: "https://www.facebook.com/basilvetas" },
-		{ name: "twitter", link: "https://twitter.com/basilvetas" },
-		{ name: "linkedin", link: "https://www.linkedin.com/in/basilvetas/" },
-		{ name: "instagram", link: "https://www.instagram.com/basilvetas/" },
-		{ name: "google", link: "https://plus.google.com/+BasilVetas" }
-	];
-	
-	// adds background color to social buttons
-	$scope.color = function(i) {	
-		$('#' + i).addClass("btn-" + i);		    
-  };
-
-  // removes background color from social buttons
-  $scope.default = function(i) {		
-		$('#' + i).removeClass("btn-" + i);		    
-  };	
+app.controller('HeaderCtrl', ['$scope', function ($scope) {	
     
 }]);
 
