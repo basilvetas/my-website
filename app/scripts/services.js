@@ -28,19 +28,22 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
 
       		if(num == 0) {
       			title = key;
-      		}
-      		else if(key[0] ===  "\"" && key[key.length-1] ===  "\"") {
-      			body += '<blockquote>' + key + '</blockquote>';	
-      		}
+      		}      		
       		else {      		
-      			body += '<p>' + key + '</p><br />';	
+      			body += key;	
       		}            
         });
+
+        console.log(body);
+
+        var decodedText = $('<textarea />').html(body).text();       
+
+        console.log(decodedText);
 
 				var currentPost = {
 					title: title, 						
 					date: post.date || null, 							
-					body: $sce.trustAsHtml(body),
+					body: $sce.trustAsHtml(decodedText),
 					path: post.path,
 					tags: post.tags,
 					image: post.image || null,			
