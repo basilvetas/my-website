@@ -1,3 +1,6 @@
+'use strict';
+
+/******** Services ********/
 app.service('postService', ['$http', '$sce', function ($http, $sce) {
 
   return {
@@ -6,7 +9,7 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
 			return $http.get('posts.json').then(function (success){				
 	
 				// order by date				
-				posts = _.orderBy(success.data.posts, 'date', 'desc');				 				
+				var posts = _.orderBy(success.data.posts, 'date', 'desc');				 				
 
 				return posts;
 		  },function (error){
@@ -32,13 +35,9 @@ app.service('postService', ['$http', '$sce', function ($http, $sce) {
       		else {      		
       			body += key;	
       		}            
-        });
+        });        
 
-        console.log(body);
-
-        var decodedText = $('<textarea />').html(body).text();       
-
-        console.log(decodedText);
+        var decodedText = $('<div />').html(body).text();                       
 
 				var currentPost = {
 					title: title, 						
@@ -68,7 +67,7 @@ app.service('resourceService', ['$http', function ($http) {
 
 			return $http.get('resources.json').then(function (success){	
 				
-				resources = success.data.resources;
+				var resources = success.data.resources;
 
 				// wrap dates as objects
 				_.each(resources, function(res) {
@@ -94,6 +93,8 @@ app.service('resourceService', ['$http', function ($http) {
 
 }]);
 
+
+/******** Filters ********/
 app.filter('catFilter', ['$filter', function($filter) {
   
   return function(resources, tags) {

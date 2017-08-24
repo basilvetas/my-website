@@ -15,6 +15,7 @@ app.controller('HomeCtrl', ['$scope', 'postService', function ($scope, postServi
 
 }]);
 
+
 app.controller('PostCtrl', ['$scope', '$routeParams', 'postService', function ($scope, $routeParams, postService) {		
 	
 	function loadPost(post) {
@@ -32,6 +33,7 @@ app.controller('PostCtrl', ['$scope', '$routeParams', 'postService', function ($
 		
 }]);
 
+
 app.controller('AboutCtrl', ['$scope', 'postService', function ($scope, postService) {
 
 	$scope.about = {};
@@ -41,6 +43,7 @@ app.controller('AboutCtrl', ['$scope', 'postService', function ($scope, postServ
 	});
 
 }]);
+
 
 app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, resourceService) {
 	
@@ -62,8 +65,8 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, 
 
 }]);
 
-/******** Partials ********/
 
+/******** Partials ********/
 app.controller('NavCtrl', ['$scope', function ($scope) {
 
 	// make mobile/tablet navbar close on click
@@ -79,11 +82,13 @@ app.controller('NavCtrl', ['$scope', function ($scope) {
     
 }]);
 
+
 app.controller('FooterCtrl', ['$scope', function ($scope) {
 
 	$scope.date = new Date();
     
 }]);
+
 
 app.controller('HeaderCtrl', ['$scope', function ($scope) {	
     

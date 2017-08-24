@@ -3,19 +3,27 @@
 		<div class="col-md-2"></div>			
 		<div class="col-md-8 font">
 
+			<!-- Title -->
 			<a ng-href="{{'/post/' + post.path}}"><h1>{{post.title}}</h1></a>
-			<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.path"/>
-			<div class="content" ng-bind-html="post.body"></div>					
 
-			<!--  ng-click="goToPost(post.path)" -->
-			<div class="subtext">
+			<!-- Image -->
+			<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.path"/>
+
+			<!-- Content -->
+			<div class="content" ng-bind-html="post.body"></div>								
+						
+			<div class="subtext">				
+
+				<!-- Date -->
 				<span>Posted: <a ng-href="{{'/post/' + post.path}}">{{post.date | date:'longDate'}}</a></span>
 
+				<!-- Tags -->
 				<span ng-if="post.tags">&nbsp;&mdash;&nbsp;</span>
 				<span ng-repeat="tag in post.tags">
 					<a href>{{tag}}</a><span ng-if="!$last">, </span>
 				</span>			
 
+				<!-- Sources -->
 				<div ng-if="post.sources">
 					Sources:
 					<span ng-repeat="source in post.sources">
@@ -25,6 +33,7 @@
 
 			</div>							
 
+			<!-- Comments -->
 			<div id="disqus_thread"></div>			
 			<script>
 				/**

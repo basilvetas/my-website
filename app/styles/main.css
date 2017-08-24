@@ -85,7 +85,7 @@ a:focus, a:hover {
 }
 
 .subtext {
-  margin: 0 0 80px 0;
+  margin: 20px 0 80px 0;
   font-style: italic;
 }
 
@@ -95,6 +95,10 @@ a:focus, a:hover {
 
 .content a, .content a:focus, .content a:hover {
   text-decoration: underline;
+}
+
+.content p {
+  margin: 0 0 20px; 
 }
 
 @media (max-width: 767px) {
