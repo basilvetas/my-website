@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
+var app = angular.module('app', ['ngRoute', 'ui.bootstrap']);
 
 app.config(['$locationProvider', function($locationProvider) {  
   $locationProvider.html5Mode(true).hashPrefix('');
