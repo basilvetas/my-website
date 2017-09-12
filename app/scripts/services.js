@@ -75,7 +75,7 @@ app.service('resourceService', ['$http', function ($http) {
 						res.date = new Date(res.date);
 					}		
 					else {
-						res.date = new Date();
+						res.date = new Date(449902800000);
 					}
 				});
 

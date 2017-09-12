@@ -49,11 +49,14 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, 
 	
 	$scope.categories = [
 		{tags: ["blockchain"], title: "Blockchain"},
+		{tags: ["datasci", "statistics"], title: "Data Science"},
 		{tags: ["investing", "startups"], title: "Startups & Investing"},
 		{tags: ["technology"], title: "Technology"},		
 		{tags: ["environment"], title: "Environment"},
 		{tags: ["politics", "philosophy", "economics"], title: "Philosophy, Politics & Economics"},
 		{tags: ["health", "nutrition"], title: "Health & Nutrition"},
+		{tags: ["nyc"], title: "New York City"},
+		{tags: ["greece"], title: "Greece"},
 		{tags: ["other"], title: "Other"}
 	]
 
