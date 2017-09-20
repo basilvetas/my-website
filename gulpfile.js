@@ -55,7 +55,7 @@ gulp.task('bower', function() {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task('build-json', function() {
+gulp.task('build-json', ['build-posts'], function() {
   return gulp.src('./src/*.json')    
     .pipe(gulp.dest('./dist'));
 });
@@ -73,6 +73,17 @@ gulp.task('build-posts', function() {
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
+// pipe images to dist
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task('build-imgs', function() {
+  return gulp.src('./src/images/*')    
+    .pipe(gulp.dest('./dist/images/'));
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
 // runs sass, creates css source maps
 //
 /////////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +94,7 @@ gulp.task('build-css', function() {
     .pipe(sass())
     .pipe(cachebust.resources())
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/css'));
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -126,7 +137,7 @@ gulp.task('jshint', function() {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task('build-js', function() {
+gulp.task('build-js', ['build-template-cache'], function() {
   var b = browserify({
     entries: './src/scripts/app.js',
     debug: true,
@@ -151,10 +162,12 @@ gulp.task('build-js', function() {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task('build', ['build-template-cache','bower','build-css', 'jshint', 'build-js', 'build-json', 'build-posts'], function() {
+gulp.task('build', ['bower', 'build-imgs', 'build-css', 'jshint', 'build-js', 'build-json'], function() {  
+  
   return gulp.src('src/index.html')
     .pipe(cachebust.references())
     .pipe(gulp.dest('dist'));
+
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -167,13 +180,18 @@ gulp.task('watch', function() {
   return gulp.watch(['./src/index.html','./src/partials/*.html', './src/styles/*.*css', './src/scripts/**/*.js'], ['build']);
 });
 
+// gulp.task('watch', function () {
+//     gulp.watch(['img/sprites/**/*'], ['sprite']);
+//     gulp.watch(['css/**/*.scss'], ['sass']);
+// });
+
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // launches a web server that serves files in the 'dist' directory
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task('webserver', ['watch','build'], function() {
+gulp.task('webserver', ['watch', 'build'], function() {
   gulp.src('dist')
     .pipe(webserver({
       livereload: false,
@@ -202,16 +220,16 @@ gulp.task('dev', ['watch', 'webserver']);
 
 gulp.task('sprite', function () {
 
-  var spriteData = gulp.src('./src/images/*.png')
-    .pipe(spritesmith({
-      imgName: 'sprite.png',
-      cssName: '_sprite.scss',
-      algorithm: 'top-down',
-      padding: 5
-    }));
+  // var spriteData = gulp.src('./src/images/*.png')
+  //   .pipe(spritesmith({
+  //     imgName: 'sprite.png',
+  //     cssName: '_sprite.scss',
+  //     algorithm: 'top-down',
+  //     padding: 5
+  //   }));
 
-  spriteData.css.pipe(gulp.dest('./dist'));
-  spriteData.img.pipe(gulp.dest('./dist'));
+  // spriteData.css.pipe(gulp.dest('./dist/css'));
+  // spriteData.img.pipe(gulp.dest('./dist/images'));
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -220,4 +238,4 @@ gulp.task('sprite', function () {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task('default', ['sprite','build']);
+gulp.task('default', ['sprite', 'build']);

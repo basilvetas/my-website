@@ -8,9 +8,9 @@ angular.module('mywebsite')
 	$scope.postContents = [];
 	
 	postService.reqPostList().then(function (data){		
-		_.each(data, function(post) {
+		_.each(data, function(post) {		
     	postService.getPostContent(post).then(function (data){    
-    		$scope.postContents.push(data);
+    		$scope.postContents.push(data);    		
     	});
     });		
 	});
@@ -28,7 +28,7 @@ angular.module('mywebsite')
 		
 		postService.reqPostList().then(function (data){		
 	 		postService.getPostContent(_.find(data, {'path': post})).then(function (data){	    			    
-		 		$scope.post = data;		 		
+		 		$scope.post = data;		 	
 			});
 		});
   }
