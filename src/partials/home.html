@@ -2,14 +2,14 @@
 	<div class="container">		
 		<div class="col-md-2"></div>			
 		<div class="col-md-8">
-			{{test}}
+			
 			<div ng-repeat="post in postContents">	
-				{{post}}
+				
 				<!-- Title -->				
 				<a ng-href="{{'/post/' + post.path}}"><h1>{{post.title}}</h1></a>	
 
 				<!-- Image -->
-				<img ng-if="post.image" ng-src="imgs/{{post.image}}" alt="post.path"/>							
+				<img ng-if="post.image" ng-src="images/{{post.image}}" alt="post.path"/>							
 
 				<!-- Content -->
 				<div class="content" ng-bind-html="post.body"></div>					
@@ -38,5 +38,6 @@
 
 		</div>
 		<div class="col-md-2"></div>
+		<div twitter></div>
 	</div>
 </div

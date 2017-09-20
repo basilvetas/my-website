@@ -2,10 +2,9 @@
 
 /******** Templates ********/
 angular.module('mywebsite')
-.controller('HomeCtrl', function ($scope, postService) {		
+.controller('HomeCtrl', function ($scope, postService, $sanitize) {		
 	'use strict';
-		
-	$scope.test = "Hello World"
+			
 	$scope.postContents = [];
 	
 	postService.reqPostList().then(function (data){		
@@ -20,7 +19,7 @@ angular.module('mywebsite')
 
 
 angular.module('mywebsite')
-.controller('PostCtrl', function ($scope, $routeParams, postService) {		
+.controller('PostCtrl', function ($scope, $routeParams, postService, $sanitize) {		
 	'use strict';
 	
 	function loadPost(post) {

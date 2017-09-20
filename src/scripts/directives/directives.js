@@ -22,6 +22,38 @@ angular.module('mywebsite')
   }
 });
 
+
+angular.module('mywebsite')
+.directive('disqus', function () {
+  return {
+    restrict: 'A', // C: class, E: element, M: comments, A: attributes
+    replace: false, // replaces original content with template
+    template: '<div id="disqus_thread"></div>',
+    controller: 'DisqusCtrl'
+  }
+});
+
+angular.module('mywebsite')
+.directive('twitter', function () {
+  return {
+    restrict: 'A', // C: class, E: element, M: comments, A: attributes
+    replace: false, // replaces original content with template
+    template: '<span></span>',
+    controller: 'TwitterCtrl'
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 // angular.module('mywebsite').directive('footer', function () {
 //   return {
 //     restrict: 'A', // C: class, E: element, M: comments, A: attributes

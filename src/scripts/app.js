@@ -8,6 +8,7 @@ require('angular');
 require('angular-route');
 require('angular-ui-bootstrap');
 require('lodash');
+require('angular-sanitize');
 
 require('../../dist/templateCachePartials');
 
@@ -26,7 +27,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase']).config(function($locationProvider, $routeProvider) {  
+angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 'ngSanitize']).config(function($locationProvider, $routeProvider) {  
   "use strict";
 
   $locationProvider.html5Mode(true).hashPrefix('');

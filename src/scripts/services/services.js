@@ -1,14 +1,19 @@
 /******** Services ********/
 angular.module('mywebsite')
-.service('postService', function ($http, $sce) {
+.service('postService', function ($http, $sce, $sanitize) {
 	'use strict';
+
+	function htmlDecode(text){
+	  var el = document.createElement('div');
+	  el.innerHTML = text;	  
+	  return el.childNodes.length === 0 ? "" : el.childNodes[0].nodeValue;
+	}
 	
   return {
 		reqPostList: function() {
 
 			return $http.get('posts.json').then(function (success){				
-				console.log("In POST CALLBACK");
-				console.log(success);
+				
 				// order by date				
 				var posts = _.orderBy(success.data.posts, 'date', 'desc');				 				
 
@@ -38,12 +43,12 @@ angular.module('mywebsite')
       		}            
         });        
 
-        // var decodedText = jQuery('<div />').html(body).text();                       
+			  var html = htmlDecode(body);
 
 				var currentPost = {
 					title: title, 						
 					date: post.date || null, 							
-					// body: $sce.trustAsHtml(decodedText),
+					body: html,
 					path: post.path,
 					tags: post.tags,
 					image: post.image || null,			
@@ -68,9 +73,6 @@ angular.module('mywebsite')
 		reqResources: function() {
 
 			return $http.get('resources.json').then(function (success){	
-
-				console.log("In RESOURCE CALLBACK");
-				console.log(success);
 				
 				var resources = success.data.resources;
 
