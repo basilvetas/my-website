@@ -1,0 +1,283 @@
+/** 
+ * Project Name: Agamemnon
+ * Author: Basil Vetas
+**/
+
+/*----------------------------------------------------------------------------- 
+00=IMPORTS
+-----------------------------------------------------------------------------*/
+
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/theme";
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+
+/*----------------------------------------------------------------------------- 
+01=THEMES
+-----------------------------------------------------------------------------*/
+
+$font-stack: Arial, Helvetica, sans-serif;
+$black: #000000;
+$white: #FFFFFF;
+$gray: #EEEEEE;
+$dark-blue: #003366;
+$nav-height: 60px;
+$footer-height: 400px;
+
+// h2 {
+//   color: #FFFFFF;
+// }
+
+// .colored {
+//   color: #359D71;
+//   /*color: #BADA55;*/
+// }
+
+// .font {
+//   // font-family: 'Lato', sans-serif;
+//   font-size: 20px;
+// }
+
+// .font-brand {
+//   // font-family: 'Lato', sans-serif;
+//   font-size: 20px;
+// }
+
+// .ellipsis {
+//   text-align: center;
+// }
+
+// .center {
+//  text-align: center; 
+// }
+
+.spaced-caps {
+  font: $font-stack;
+  text-transform: uppercase;
+  letter-spacing: 2px;  
+  font-weight: normal;
+}
+
+// .dark {
+//   background: #404040;
+//   color: #FFFFFF;  
+//   border-bottom: 1px solid #359D71;  
+// }
+
+// .no-margin {
+//   margin: 0;
+// }
+
+// a {
+//   color: #000;  
+// }
+
+// a:focus, a:hover {
+//   text-decoration: none;
+//   color: #003366;
+// }
+
+// .subtext {
+//   margin: 20px 0 80px 0;
+//   font-style: italic;
+// }
+
+// .content {
+//   margin: 30px 0 0 0;
+// }
+
+// .content a, .content a:focus, .content a:hover {
+//   text-decoration: underline;
+// }
+
+// .content p {
+//   margin: 0 0 20px; 
+// }
+
+// @media (max-width: 767px) {
+//   .font {
+//     font-size: 14px;
+//   }
+
+//   h1 {
+//    font-size: 28px; 
+//   }
+// }
+
+/*----------------------------------------------------------------------------- 
+02=BASE   
+-----------------------------------------------------------------------------*/
+
+/* For sticky footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  // uncomment if footer is included
+  // margin-bottom: $footer-height;
+}
+/* For sticky footer */
+
+// .container-fluid {
+//   padding: 50px;  
+// }
+
+img {
+  width: 100%;
+}
+
+/*----------------------------------------------------------------------------- 
+03=NAV
+-----------------------------------------------------------------------------*/
+
+.navbar-fixed-top {
+  background: $dark-blue;
+  min-height: $nav-height;
+  border: none;  
+}
+
+.navbar-right li a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: $nav-height;  
+  border: none;
+}
+
+.navbar-default {
+
+  .navbar-nav li {
+
+    a, a:visited {
+      color: $white;
+    }
+
+    a:hover {
+      background-color: $gray;
+      color: $dark-blue;
+    }
+  } 
+
+  a.navbar-brand {
+    font: $font-stack;
+    padding: 20px 0;
+    margin: 0 30px;
+    font-size: 20px;
+    color: $white;
+  }
+
+  a.navbar-brand:hover, a.navbar-brand:visited {
+    color: $white;  
+  }
+
+  .navbar-toggle:focus, .navbar-toggle:hover {
+    background-color: $white;
+  }  
+
+}
+
+.navbar-toggle {
+  margin: 15px 30px;  
+}
+
+@media (max-width: 767px) {
+  .navbar-right li a {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;    
+  }
+}
+
+/*----------------------------------------------------------------------------- 
+04=FOOTER
+-----------------------------------------------------------------------------*/
+
+// footer {
+//   position: absolute;  
+//   bottom: 0;
+//   width: 100%;
+//   height: $footer-height;
+//   background-color: $dark-blue;
+//   color: $white;
+// }
+
+// footer .navbar {
+//   border: none;
+//   margin: 0;
+// }
+
+// footer .navbar .nav li {
+//   display:inline-block;
+// }
+
+// footer .navbar .nav li a {
+//   color: #FFFFFF;
+// }
+
+// footer .navbar .nav li a:hover {  
+//   color: #003366;
+// }
+
+// .info {  
+//   text-align: center; 
+//   padding: 100px 15px;  
+// } 
+
+/*----------------------------------------------------------------------------- 
+05=HEADER
+-----------------------------------------------------------------------------*/
+header {
+  /*background-image: url();*/
+  background-size: cover;  
+  background-position: center;
+  background-repeat: no-repeat;  
+  height: 100px;  
+}
+
+/*----------------------------------------------------------------------------- 
+06=SOCIAL
+-----------------------------------------------------------------------------*/
+
+// .social {
+//   padding: 20px;
+//   text-align: center;
+// }
+
+// .social .btn {
+//   margin: 30px;
+// }
+
+// .social ul { 
+//   list-style-type: none;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .social li {
+//   display: inline;
+//   width: 60px;
+// }
+
+/*----------------------------------------------------------------------------- 
+07=RESOURCES
+-----------------------------------------------------------------------------*/
+
+#resources a {
+  font-size: 14px;
+}
+
+#resources ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+#resources li {
+  list-style: none;
+}
+
+/*----------------------------------------------------------------------------- 
+07=HOME
+-----------------------------------------------------------------------------*/
+
+#home {
+  
+}

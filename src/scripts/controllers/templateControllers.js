@@ -1,8 +1,11 @@
-'use strict';
+
 
 /******** Templates ********/
-app.controller('HomeCtrl', ['$scope', 'postService', function ($scope, postService) {		
+angular.module('mywebsite')
+.controller('HomeCtrl', function ($scope, postService) {		
+	'use strict';
 		
+	$scope.test = "Hello World"
 	$scope.postContents = [];
 	
 	postService.reqPostList().then(function (data){		
@@ -13,10 +16,12 @@ app.controller('HomeCtrl', ['$scope', 'postService', function ($scope, postServi
     });		
 	});
 
-}]);
+});
 
 
-app.controller('PostCtrl', ['$scope', '$routeParams', 'postService', function ($scope, $routeParams, postService) {		
+angular.module('mywebsite')
+.controller('PostCtrl', function ($scope, $routeParams, postService) {		
+	'use strict';
 	
 	function loadPost(post) {
 		
@@ -31,10 +36,12 @@ app.controller('PostCtrl', ['$scope', '$routeParams', 'postService', function ($
 
 	$scope.$on('$routeChangeUpdate', loadPost($routeParams.postname));
 		
-}]);
+});
 
 
-app.controller('AboutCtrl', ['$scope', 'postService', function ($scope, postService) {
+angular.module('mywebsite')
+.controller('AboutCtrl', function ($scope, postService) {
+	'use strict';
 
 	$scope.about = {};
 				
@@ -42,20 +49,22 @@ app.controller('AboutCtrl', ['$scope', 'postService', function ($scope, postServ
  		$scope.about = data; 		
 	});
 
-}]);
+});
 
 
-app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, resourceService) {
+angular.module('mywebsite')
+.controller('ResourcesCtrl', function ($scope, resourceService) {
+	'use strict';
 	
 	$scope.categories = [
-		{tags: ["blockchain"], title: "Blockchain"},
+		{tags: ["blockchain"], title: "Crypto/Blockchain"},
 		{tags: ["datasci", "statistics"], title: "Data Science"},
 		{tags: ["investing", "startups"], title: "Startups & Investing"},
-		{tags: ["technology"], title: "Technology"},		
+		{tags: ["tech"], title: "Tech"},		
 		{tags: ["environment"], title: "Environment"},
-		{tags: ["politics", "philosophy", "economics"], title: "Philosophy, Politics & Economics"},
+		{tags: ["politics", "philosophy", "economics"], title: "Philosophy, Politics & Econ"},
 		{tags: ["health", "nutrition"], title: "Health & Nutrition"},
-		{tags: ["nyc"], title: "New York City"},
+		{tags: ["nyc"], title: "NYC"},
 		{tags: ["greece"], title: "Greece"},
 		{tags: ["other"], title: "Other"}
 	]
@@ -66,35 +75,5 @@ app.controller('ResourcesCtrl', ['$scope', 'resourceService', function ($scope, 
 		$scope.resources = data;		
 	}); 
 
-}]);
-
-
-/******** Partials ********/
-app.controller('NavCtrl', ['$scope', function ($scope) {
-
-	// make mobile/tablet navbar close on click
-	$('.nav a').click(function(){
-    $('#collapse-1').collapse('hide');
-	});
-
-	$scope.menu = [		
-		{ title: "Home", link: "/" },				
-		{ title: "About", link: "/about" },	
-		{ title: "Resources", link: "/resources"}		
-	];
-    
-}]);
-
-
-app.controller('FooterCtrl', ['$scope', function ($scope) {
-
-	$scope.date = new Date();
-    
-}]);
-
-
-app.controller('HeaderCtrl', ['$scope', function ($scope) {	
-    
-}]);
-
+});
 
