@@ -45,6 +45,9 @@ angular.module('mywebsite')
 
 			  var html = htmlDecode(body);
 
+			  // var newPostKey = firebase.database().ref().child('posts').push().key;
+			  // idKey: newPostKey						
+      	
 				var currentPost = {
 					title: title, 						
 					date: post.date || null, 							
@@ -52,7 +55,7 @@ angular.module('mywebsite')
 					path: post.path,
 					tags: post.tags,
 					image: post.image || null,			
-					sources: post.sources || null						
+					sources: post.sources || null					
 				};
 
 				return currentPost;

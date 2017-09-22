@@ -1,13 +1,16 @@
 # personal website
 
-Install npm/node/browserify
-
 INSTALL DEPENDENCIES:
 npm install
 
-BUNDLE CLIENT-SIDE MODULES:
-browserify main.js -o bundle.js
+INSTALL FIREBASE:
+firebase init
 
-START LOCAL SERVER: 
-node server
+CLEAN BUILD
+gulp clean
 
+BUILD PROJECT
+gulp
+
+START DEV SERVE
+gulp dev

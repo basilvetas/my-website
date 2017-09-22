@@ -9,12 +9,11 @@ angular.module('mywebsite')
 	
 	postService.reqPostList().then(function (data){		
 		_.each(data, function(post) {		
-    	postService.getPostContent(post).then(function (data){    
-    		$scope.postContents.push(data);    		
+    	postService.getPostContent(post).then(function (data){        		
+    		$scope.postContents.push(data);      		
     	});
     });		
 	});
-
 });
 
 

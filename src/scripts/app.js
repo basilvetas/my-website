@@ -9,6 +9,7 @@ require('angular-route');
 require('angular-ui-bootstrap');
 require('lodash');
 require('angular-sanitize');
+require('angular-google-analytics');
 
 require('../../dist/templateCachePartials');
 
@@ -27,7 +28,8 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 'ngSanitize']).config(function($locationProvider, $routeProvider) {  
+angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 'ngSanitize', 'angular-google-analytics'])
+.config(function($locationProvider, $routeProvider) {  
   "use strict";
 
   $locationProvider.html5Mode(true).hashPrefix('');
@@ -55,7 +57,15 @@ angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 
 
 });
 
+// https://www.npmjs.com/package/angular-google-analytics
+angular.module('mywebsite')
+.config(function (AnalyticsProvider) {      
+   AnalyticsProvider.setAccount('UA-106863823-1');
+}).run(function(Analytics) { });
+
 require('partialControllers');
 require('templateControllers');
 require('directives');
 require('services');
+
+
