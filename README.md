@@ -12,5 +12,5 @@ gulp clean
 BUILD PROJECT
 gulp
 
-START DEV SERVE
+START DEV SERVER
 gulp dev

@@ -6,7 +6,7 @@
 			<div ng-repeat="post in postContents">	
 				
 				<!-- Title -->				
-				<a ng-click="tracking(post)" ng-href="{{'/post/' + post.path}}"><h1>{{post.title}}</h1></a>	
+				<a ng-href="{{'/post/' + post.path}}"><h1>{{post.title}}</h1></a>	
 
 				<!-- Image -->
 				<img ng-if="post.image" ng-src="images/{{post.image}}" alt="post.path"/>

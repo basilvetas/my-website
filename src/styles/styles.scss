@@ -1,5 +1,5 @@
 /** 
- * Project Name: Agamemnon
+ * Project Name: My Website
  * Author: Basil Vetas
 **/
 
@@ -11,7 +11,6 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/theme";
 @import "../../node_modules/font-awesome/scss/font-awesome.scss";
 // @import "../../dist/css/_sprite.scss";
-
 // @include sprites($spritesheet-sprites);
 
 /*----------------------------------------------------------------------------- 
@@ -26,86 +25,6 @@ $dark-blue: #003366;
 $nav-height: 60px;
 $footer-height: 400px;
 
-// h2 {
-//   color: #FFFFFF;
-// }
-
-// .colored {
-//   color: #359D71;
-//   /*color: #BADA55;*/
-// }
-
-// .font {
-//   // font-family: 'Lato', sans-serif;
-//   font-size: 20px;
-// }
-
-// .font-brand {
-//   // font-family: 'Lato', sans-serif;
-//   font-size: 20px;
-// }
-
-// .ellipsis {
-//   text-align: center;
-// }
-
-// .center {
-//  text-align: center; 
-// }
-
-.spaced-caps {
-  font: $font-stack;
-  text-transform: uppercase;
-  letter-spacing: 2px;  
-  font-weight: normal;
-}
-
-// .dark {
-//   background: #404040;
-//   color: #FFFFFF;  
-//   border-bottom: 1px solid #359D71;  
-// }
-
-// .no-margin {
-//   margin: 0;
-// }
-
-// a {
-//   color: #000;  
-// }
-
-// a:focus, a:hover {
-//   text-decoration: none;
-//   color: #003366;
-// }
-
-// .subtext {
-//   margin: 20px 0 80px 0;
-//   font-style: italic;
-// }
-
-// .content {
-//   margin: 30px 0 0 0;
-// }
-
-// .content a, .content a:focus, .content a:hover {
-//   text-decoration: underline;
-// }
-
-// .content p {
-//   margin: 0 0 20px; 
-// }
-
-// @media (max-width: 767px) {
-//   .font {
-//     font-size: 14px;
-//   }
-
-//   h1 {
-//    font-size: 28px; 
-//   }
-// }
-
 /*----------------------------------------------------------------------------- 
 02=BASE   
 -----------------------------------------------------------------------------*/
@@ -115,18 +34,28 @@ html {
   position: relative;
   min-height: 100%;
 }
-body {
-  // uncomment if footer is included
-  // margin-bottom: $footer-height;
+body { 
+  font-size: 18px;        
+  // margin-bottom: $footer-height; // uncomment if footer is included
 }
-/* For sticky footer */
-
-// .container-fluid {
-//   padding: 50px;  
-// }
 
 img {
   width: 100%;
+  margin: 10px 0;
+}
+
+@media (max-width: 767px) {  
+  body {
+    font-size: 12px;  
+
+    blockquote {
+      font-size: 12px;        
+    }
+  }
+  
+  h1 {
+   font-size: 28px; 
+  }
 }
 
 /*----------------------------------------------------------------------------- 
@@ -190,43 +119,9 @@ img {
   }
 }
 
-/*----------------------------------------------------------------------------- 
-04=FOOTER
------------------------------------------------------------------------------*/
-
-// footer {
-//   position: absolute;  
-//   bottom: 0;
-//   width: 100%;
-//   height: $footer-height;
-//   background-color: $dark-blue;
-//   color: $white;
-// }
-
-// footer .navbar {
-//   border: none;
-//   margin: 0;
-// }
-
-// footer .navbar .nav li {
-//   display:inline-block;
-// }
-
-// footer .navbar .nav li a {
-//   color: #FFFFFF;
-// }
-
-// footer .navbar .nav li a:hover {  
-//   color: #003366;
-// }
-
-// .info {  
-//   text-align: center; 
-//   padding: 100px 15px;  
-// } 
 
 /*----------------------------------------------------------------------------- 
-05=HEADER
+04=HEADER
 -----------------------------------------------------------------------------*/
 header {
   /*background-image: url();*/
@@ -237,28 +132,49 @@ header {
 }
 
 /*----------------------------------------------------------------------------- 
-06=SOCIAL
+05=FOOTER
 -----------------------------------------------------------------------------*/
 
-// .social {
-//   padding: 20px;
-//   text-align: center;
-// }
+footer {
+  position: absolute;  
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  background-color: $dark-blue;
+  color: $white;
 
-// .social .btn {
-//   margin: 30px;
-// }
+  .navbar {
 
-// .social ul { 
-//   list-style-type: none;
-//   margin: 0;
-//   padding: 0;
-// }
+    border: none;
+    margin: 0;  
 
-// .social li {
-//   display: inline;
-//   width: 60px;
-// }
+    .nav li {
+  
+    display:inline-block;
+
+      a {
+        color: $white;
+      }
+
+      a:hover {  
+        color: $dark-blue;
+      }      
+    }
+  }
+}
+
+/*----------------------------------------------------------------------------- 
+06=HOME
+-----------------------------------------------------------------------------*/
+
+#home {
+  
+}
+
+.subtext {
+  margin: 20px 0 80px 0;
+  font-style: italic;
+}
 
 /*----------------------------------------------------------------------------- 
 07=RESOURCES
@@ -278,9 +194,10 @@ header {
 }
 
 /*----------------------------------------------------------------------------- 
-07=HOME
+08=ABOUT
 -----------------------------------------------------------------------------*/
 
-#home {
-  
-}
+
+/*----------------------------------------------------------------------------- 
+09=POSTS
+-----------------------------------------------------------------------------*/

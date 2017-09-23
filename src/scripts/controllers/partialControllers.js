@@ -8,6 +8,8 @@ angular.module('mywebsite')
  //    $('#collapse-1').collapse('hide');
 	// });
 
+	$scope.isCollapsed = true;
+
 	$scope.menu = [		
 		{ title: "Home", link: "/" },				
 		{ title: "About", link: "/about" },	
