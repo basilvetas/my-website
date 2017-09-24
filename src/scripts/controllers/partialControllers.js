@@ -3,17 +3,12 @@ angular.module('mywebsite')
 .controller('NavCtrl', function ($scope) {
 	'use strict';
 
-	// make mobile/tablet navbar close on click
-	// $('.nav a').click(function(){
- //    $('#collapse-1').collapse('hide');
-	// });
-
 	$scope.isCollapsed = true;
 
 	$scope.menu = [		
 		{ title: "Home", link: "/" },				
 		{ title: "About", link: "/about" },	
-		{ title: "Resources", link: "/resources"}		
+		{ title: "More...", link: "/more"}		
 	];
     
 });
@@ -22,7 +17,8 @@ angular.module('mywebsite')
 .controller('DisqusCtrl', function ($scope) {
 	'use strict'
 
-	// Get the remote Disqus script and insert it into the DOM, but only if it not already loaded (as that will cause warnings)
+	// Get the remote Disqus script and insert it into the DOM, 
+	// but only if it not already loaded (as that will cause warnings)
   if (!window.DISQUS) {  	
     var d = document, s = d.createElement('script');
 		s.src = 'https://basilvetas.disqus.com/embed.js';

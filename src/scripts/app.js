@@ -28,9 +28,9 @@ angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'ngSanitize'
       templateUrl: '/partials/about.html',
       controller: 'AboutCtrl'
     })       
-    .when('/resources', {
-      templateUrl: '/partials/resources.html',
-      controller: 'ResourcesCtrl'
+    .when('/more', {
+      templateUrl: '/partials/more.html',
+      controller: 'MoreCtrl'
     })        
     .when('/post/:postname', {
       templateUrl: '/partials/post.html', 

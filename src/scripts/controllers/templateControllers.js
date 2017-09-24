@@ -51,7 +51,7 @@ angular.module('mywebsite')
 
 
 angular.module('mywebsite')
-.controller('ResourcesCtrl', function ($scope, resourceService) {
+.controller('MoreCtrl', function ($scope, resourceService) {
 	'use strict';
 	
 	$scope.categories = [
