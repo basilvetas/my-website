@@ -15,7 +15,7 @@
     <!-- Collect content for toggling -->
     <div class="collapse navbar-collapse" uib-collapse="isCollapsed">
       <ul class="nav navbar-nav navbar-right">
-        <li ng-repeat="item in menu"><a ng-href="{{item.link}}">{{item.title}}</a></li>
+        <li ng-repeat="item in menu"><a ng-click="closeNav()" ng-href="{{item.link}}">{{item.title}}</a></li>
       </ul>
     </div>
 

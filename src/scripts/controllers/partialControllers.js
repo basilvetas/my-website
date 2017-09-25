@@ -4,6 +4,10 @@ angular.module('mywebsite')
 	'use strict';
 
 	$scope.isCollapsed = true;
+	
+	$scope.closeNav = function() {
+		$scope.isCollapsed = true;			
+	};
 
 	$scope.menu = [		
 		{ title: "Home", link: "/" },				
