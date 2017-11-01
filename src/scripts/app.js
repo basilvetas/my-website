@@ -28,10 +28,10 @@ angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'ngSanitize'
       templateUrl: '/partials/about.html',
       controller: 'AboutCtrl'
     })       
-    .when('/more', {
-      templateUrl: '/partials/more.html',
-      controller: 'MoreCtrl'
-    })        
+    // .when('/more', {
+    //   templateUrl: '/partials/more.html',
+    //   controller: 'MoreCtrl'
+    // })        
     .when('/post/:postname', {
       templateUrl: '/partials/post.html', 
       controller: 'PostCtrl'

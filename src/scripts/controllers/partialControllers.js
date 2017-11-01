@@ -12,7 +12,7 @@ angular.module('mywebsite')
 	$scope.menu = [		
 		{ title: "Home", link: "/" },				
 		{ title: "About", link: "/about" },	
-		{ title: "More...", link: "/more"}		
+		// { title: "More...", link: "/more"}		
 	];
     
 });
