@@ -18,19 +18,21 @@
 				<!-- Date -->
 				<span>Posted: <a ng-href="{{'/post/' + post.path}}">{{post.date | date:'longDate'}}</a></span>
 
-				<!-- Tags -->
-				<span ng-if="post.tags">&nbsp;&mdash;&nbsp;</span>
-				<span ng-repeat="tag in post.tags">
-					<a href>{{tag}}</a><span ng-if="!$last">, </span>
-				</span>			
-
 				<!-- Sources -->
 				<div ng-if="post.sources">
 					Sources:
 					<span ng-repeat="source in post.sources">
 						<a ng-href="{{source.link}}" target="_blank">{{source.author}}</a><span ng-if="!$last">, </span>
 					</span>	
-				</div>											
+				</div>
+
+				<!-- Tags -->
+				<span ng-if="post.tags">
+					Tags: 
+					<span ng-repeat="tag in post.tags">
+						<a href>{{tag}}</a><span ng-if="!$last">, </span>
+					</span>											
+				</span>											
 
 			</div>							
 
