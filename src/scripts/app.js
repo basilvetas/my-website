@@ -57,7 +57,6 @@ angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 
 
 });
 
-// https://www.npmjs.com/package/angular-google-analytics
 angular.module('mywebsite')
 .config(function (AnalyticsProvider) {      
    AnalyticsProvider.setAccount('UA-106863823-1');
