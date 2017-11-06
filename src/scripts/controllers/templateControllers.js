@@ -50,28 +50,28 @@ angular.module('mywebsite')
 });
 
 
-angular.module('mywebsite')
-.controller('MoreCtrl', function ($scope, resourceService) {
-	'use strict';
+// angular.module('mywebsite')
+// .controller('MoreCtrl', function ($scope, resourceService) {
+// 	'use strict';
 	
-	$scope.categories = [
-		{tags: ["blockchain"], title: "Crypto/Blockchain"},
-		{tags: ["datasci", "statistics"], title: "Data Science"},
-		{tags: ["investing", "startups"], title: "Startups & Investing"},
-		{tags: ["tech"], title: "Tech"},		
-		{tags: ["environment"], title: "Environment"},
-		{tags: ["politics", "philosophy", "economics"], title: "Philosophy, Politics & Econ"},
-		{tags: ["health", "nutrition"], title: "Health & Nutrition"},
-		{tags: ["nyc"], title: "NYC"},
-		{tags: ["greece"], title: "Greece"},
-		{tags: ["other"], title: "Other"}
-	]
+// 	$scope.categories = [
+// 		{tags: ["blockchain"], title: "Crypto/Blockchain"},
+// 		{tags: ["datasci", "statistics"], title: "Data Science"},
+// 		{tags: ["investing", "startups"], title: "Startups & Investing"},
+// 		{tags: ["tech"], title: "Tech"},		
+// 		{tags: ["environment"], title: "Environment"},
+// 		{tags: ["politics", "philosophy", "economics"], title: "Philosophy, Politics & Econ"},
+// 		{tags: ["health", "nutrition"], title: "Health & Nutrition"},
+// 		{tags: ["nyc"], title: "NYC"},
+// 		{tags: ["greece"], title: "Greece"},
+// 		{tags: ["other"], title: "Other"}
+// 	]
 
-	$scope.resources = [];
+// 	$scope.resources = [];
 
-	resourceService.reqResources().then(function(data) {		 		
-		$scope.resources = data;		
-	}); 
+// 	resourceService.reqResources().then(function(data) {		 		
+// 		$scope.resources = data;		
+// 	}); 
 
-});
+// });
 
