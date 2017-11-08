@@ -35,7 +35,8 @@ html {
   min-height: 100%;
 }
 body { 
-  font-size: 18px;        
+  font-size: 18px; 
+  word-wrap: break-word;
   // margin-bottom: $footer-height; // uncomment if footer is included
 }
 
