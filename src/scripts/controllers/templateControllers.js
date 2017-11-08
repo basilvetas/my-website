@@ -39,7 +39,7 @@ angular.module('mywebsite')
 		 		ngMeta.setTitle('A Blog by Basil Vetas', ' | ' + $scope.post.title);
 		 		ngMeta.setTag('description', $scope.post.title);
 		 		ngMeta.setTag('og:title', $scope.post.title);
-				ngMeta.setTag('og:url', "https://basilvetas.com/" + $scope.post.path);
+				ngMeta.setTag('og:url', "https://basilvetas.com/post/" + $scope.post.path);
 				ngMeta.setTag('og:description', $scope.post.title);	
 			  ngMeta.setTag('og:image', 'images/' + $scope.post.image);
 			});
