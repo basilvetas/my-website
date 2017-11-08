@@ -10,6 +10,7 @@ require('angular-ui-bootstrap');
 require('lodash');
 require('angular-sanitize');
 require('angular-google-analytics');
+require('ng-meta');
 
 require('../../dist/templateCachePartials');
 
@@ -28,11 +29,16 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 'ngSanitize', 'angular-google-analytics'])
-.config(function($locationProvider, $routeProvider) {  
+angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 'ngSanitize', 'angular-google-analytics', 'ngMeta'])
+.config(function($locationProvider, $routeProvider, ngMetaProvider) {  
   "use strict";
 
   $locationProvider.html5Mode(true).hashPrefix('');
+
+  ngMetaProvider.useTitleSuffix(true);
+  ngMetaProvider.setDefaultTitle('A Blog by Basil Vetas');
+  ngMetaProvider.setDefaultTitleSuffix(' | Home');
+  ngMetaProvider.setDefaultTag('author', 'Basil Vetas');
 
   $routeProvider
     .when('/', {
@@ -61,6 +67,10 @@ angular.module('mywebsite')
 .config(function (AnalyticsProvider) {      
    AnalyticsProvider.setAccount('UA-106863823-1');
 }).run(function(Analytics) { });
+
+angular.module('mywebsite').run(['ngMeta', function(ngMeta) { 
+  ngMeta.init();
+}]);
 
 require('partialControllers');
 require('templateControllers');

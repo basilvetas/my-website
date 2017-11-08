@@ -20,7 +20,7 @@ var gulp = require('gulp'),
   buffer = require('vinyl-buffer'),
   uglify = require('gulp-uglify'),
   gutil = require('gulp-util'),
-  ngAnnotate = require('browserify-ngannotate');
+  ngAnnotate = require('browserify-ngannotate');  
 
 var CacheBuster = require('gulp-cachebust');
 var cachebust = new CacheBuster();

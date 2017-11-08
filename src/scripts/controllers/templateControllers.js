@@ -2,8 +2,8 @@
 
 /******** Templates ********/
 angular.module('mywebsite')
-.controller('HomeCtrl', function ($scope, postService, $sanitize) {		
-	'use strict';
+.controller('HomeCtrl', function ($scope, postService, $sanitize, ngMeta) {		
+	'use strict';	
 			
 	$scope.postContents = [];
 	
@@ -11,6 +11,13 @@ angular.module('mywebsite')
 		_.each(data, function(post) {		
     	postService.getPostContent(post).then(function (data){        		
     		$scope.postContents.push(data);      		
+
+    		ngMeta.setTitle('A Blog by Basil Vetas', ' | Home');
+    		ngMeta.setTag('description', 'A Blog by Basil Vetas');
+    		ngMeta.setTag('og:title', 'A Blog by Basil Vetas');
+				ngMeta.setTag('og:url', 'https://basilvetas.com/');
+				ngMeta.setTag('og:description', 'A Blog by Basil Vetas');	
+			  ngMeta.setTag('og:image', '');
     	});
     });		
 	});
@@ -18,7 +25,7 @@ angular.module('mywebsite')
 
 
 angular.module('mywebsite')
-.controller('PostCtrl', function ($scope, $routeParams, postService, $sanitize) {		
+.controller('PostCtrl', function ($scope, $routeParams, postService, $sanitize, ngMeta) {		
 	'use strict';
 	
 	function loadPost(post) {
@@ -27,7 +34,14 @@ angular.module('mywebsite')
 		
 		postService.reqPostList().then(function (data){		
 	 		postService.getPostContent(_.find(data, {'path': post})).then(function (data){	    			    
-		 		$scope.post = data;		 	
+		 		$scope.post = data;				 		 
+
+		 		ngMeta.setTitle('A Blog by Basil Vetas', ' | ' + $scope.post.title);
+		 		ngMeta.setTag('description', $scope.post.title);
+		 		ngMeta.setTag('og:title', $scope.post.title);
+				ngMeta.setTag('og:url', "https://basilvetas.com/" + $scope.post.path);
+				ngMeta.setTag('og:description', $scope.post.title);	
+			  ngMeta.setTag('og:image', 'images/' + $scope.post.image);
 			});
 		});
   }
@@ -38,13 +52,20 @@ angular.module('mywebsite')
 
 
 angular.module('mywebsite')
-.controller('AboutCtrl', function ($scope, postService) {
+.controller('AboutCtrl', function ($scope, postService, ngMeta) {
 	'use strict';
 
 	$scope.about = {};
 				
 	postService.getPostContent({"path": "about-me"}).then(function (data){	    			    
  		$scope.about = data; 		
+
+ 		ngMeta.setTitle('A Blog by Basil Vetas', ' | About');
+ 		ngMeta.setTag('description', 'About Me');
+ 		ngMeta.setTag('og:title', 'About Me');
+		ngMeta.setTag('og:url', 'https://basilvetas.com/about');
+		ngMeta.setTag('og:description', 'About Me');	
+	  ngMeta.setTag('og:image', '');
 	});
 
 });
