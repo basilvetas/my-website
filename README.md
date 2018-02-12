@@ -1,19 +1,25 @@
 # personal website
 
 INSTALL DEPENDENCIES:
-`yarn`
+
+	yarn
 
 INITIALIZE FIREBASE:	
-`firebase init`
+
+	firebase init
 
 DEPLOY TO FIREBASE:	
-`firebase deploy`
 
-CLEAN BUILD
-`gulp clean`
+	firebase deploy
 
-BUILD PROJECT
-`gulp`
+CLEAN BUILD:
 
-START DEV SERVER
-`gulp dev`
+	gulp clean
+
+BUILD PROJECT:
+	
+	gulp
+
+START DEV SERVER:
+	
+	gulp dev
