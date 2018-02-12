@@ -1,16 +1,19 @@
 # personal website
 
 INSTALL DEPENDENCIES:
-npm install
+`yarn`
 
-INSTALL FIREBASE:
-firebase init
+INITIALIZE FIREBASE:	
+`firebase init`
+
+DEPLOY TO FIREBASE:	
+`firebase deploy`
 
 CLEAN BUILD
-gulp clean
+`gulp clean`
 
 BUILD PROJECT
-gulp
+`gulp`
 
 START DEV SERVER
-gulp dev
+`gulp dev`

@@ -7,10 +7,10 @@
 require('angular');
 require('angular-route');
 require('angular-ui-bootstrap');
-require('lodash');
 require('angular-sanitize');
 require('angular-google-analytics');
 require('ng-meta');
+window._ = require('lodash');
 
 require('../../dist/templateCachePartials');
 
