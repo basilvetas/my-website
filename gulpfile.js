@@ -84,6 +84,17 @@ gulp.task('build-imgs', function() {
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
+// pipe config to dist
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task('build-config', function() {
+  return gulp.src('./src/config/*')    
+    .pipe(gulp.dest('./dist/config/'));
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
 // runs sass, creates css source maps
 //
 /////////////////////////////////////////////////////////////////////////////////////
@@ -162,7 +173,7 @@ gulp.task('build-js', ['build-template-cache'], function() {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task('build', ['bower', 'build-imgs', 'build-css', 'jshint', 'build-js', 'build-json'], function() {  
+gulp.task('build', ['bower', 'build-imgs', 'build-config', 'build-css', 'jshint', 'build-js', 'build-json'], function() {  
   
   return gulp.src('src/index.html')
     .pipe(cachebust.references())

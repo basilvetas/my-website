@@ -1,5 +1,6 @@
-src/images
-src/posts/
+src/images/*
+src/config/*
+src/posts/*
 src/posts.json
 src/resources.json
 src/feed.xml

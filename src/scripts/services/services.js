@@ -13,6 +13,8 @@ angular.module('mywebsite')
 		reqPostList: function() {
 
 			return $http.get('posts.json').then(function (success){				
+
+				console.log(success.data.posts);
 				
 				// order by date				
 				var posts = _.orderBy(success.data.posts, 'date', 'desc');				 				

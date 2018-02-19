@@ -11,22 +11,15 @@ require('angular-sanitize');
 require('angular-google-analytics');
 require('ng-meta');
 window._ = require('lodash');
-
 require('../../dist/templateCachePartials');
+var ga = require('../../dist/config/ga-config.json');
 
-var firebase = require('firebase');
-require('angularfire');
+console.log(ga.key);
 
 // Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCu3ee3zrgVBtWiHZtuQftIunJtRVK1kOI",
-  authDomain: "my-website-cb958.firebaseapp.com",
-  databaseURL: "https://my-website-cb958.firebaseio.com",
-  projectId: "my-website-cb958",
-  storageBucket: "my-website-cb958.appspot.com",
-  messagingSenderId: "708502335303"
-};
-
+var firebase = require('firebase');
+require('angularfire');
+var config = require('../../dist/config/fb-config.json');
 firebase.initializeApp(config);
 
 angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 'ngSanitize', 'angular-google-analytics', 'ngMeta'])
@@ -65,8 +58,8 @@ angular.module('mywebsite', ['ngRoute', 'partials', 'ui.bootstrap', 'firebase', 
 
 angular.module('mywebsite')
 .config(function (AnalyticsProvider) {      
-   AnalyticsProvider.setAccount('UA-106863823-1');
-}).run(function(Analytics) { });
+   AnalyticsProvider.setAccount(ga.key);
+}).run(function(Analytics) {});
 
 angular.module('mywebsite').run(['ngMeta', function(ngMeta) { 
   ngMeta.init();
