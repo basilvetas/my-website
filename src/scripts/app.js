@@ -14,8 +14,6 @@ window._ = require('lodash');
 require('../../dist/templateCachePartials');
 var ga = require('../../dist/config/ga-config.json');
 
-console.log(ga.key);
-
 // Initialize Firebase
 var firebase = require('firebase');
 require('angularfire');
